@@ -3,6 +3,7 @@ class CreateKids < ActiveRecord::Migration
     create_table :kids do |t|
     	t.string :name
     	t.date :dob 
+        t.string :gender
     	t.text :image
     	t.text :description
         t.integer :user_id

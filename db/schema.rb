@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141002230144) do
   create_table "kids", force: true do |t|
     t.string   "name"
     t.date     "dob"
+    t.string   "gender"
     t.text     "image"
     t.text     "description"
     t.integer  "user_id"
@@ -44,12 +45,11 @@ ActiveRecord::Schema.define(version: 20141002230144) do
   end
 
   create_table "trips", force: true do |t|
-    t.string   "seats_avaliable"
+    t.integer  "seats_avaliable"
     t.integer  "user_id"
     t.integer  "school_id"
     t.string   "car_desc"
-    t.time     "earliest_time"
-    t.time     "desired_arrival"
+    t.time     "desired_start_time"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(version: 20141002230144) do
     t.text     "image"
     t.string   "phone_number"
     t.text     "family_description"
+    t.string   "car"
     t.text     "street_address"
     t.integer  "suburb_id"
     t.integer  "postcode"
     t.string   "state"
-    t.string   "car"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

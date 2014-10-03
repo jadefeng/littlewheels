@@ -1,7 +1,42 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 
+body {
+	margin: 0;
+}
 .container {
 	max-width: 960px;
 	margin: auto;
 	font-family: 'Lato', sans-serif;	
+}
+
+nav {
+	background-color: black;
+	color: white;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav h1 {
+	font-size: 2.5em;
+}
+nav li {
+    display: inline;
+    font-size: 1.2em;
+}
+nav a, a:visited{
+	color: white;
+	padding: 1em;
+}
+
+input, label, select, submit {
+	font-size: 1em;
+	width: 150px;
+	display: inline-block;
+	text-align: left;
 }
