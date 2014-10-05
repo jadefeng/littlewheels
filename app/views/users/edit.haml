@@ -9,5 +9,35 @@
 	%div
 		= f.label :email
 		= f.email_field :email
+	%div
+		= f.label :password
+		= f.password_field :password
+	%div
+		= f.label :password_confirmation
+		= f.password_field :password_confirmation
+
+	%div 
+		= f.label :image
+		= f.text_field :image
+	%div
+		= f.label :phone_number
+		= f.text_field :phone_number
+	%div
+		= f.label :family_description
+		= f.text_field :family_description
+	%div
+		= f.label :street_address
+		= f.text_field :street_address
+	%div
+		= f.label :postcode
+		= f.text_field :postcode
+	%div
+		= f.label :state
+		= f.text_field :state
+	%div
+		= f.label :car
+		= f.text_field :car
+
+
 
 	= f.submit
