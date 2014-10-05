@@ -8,6 +8,7 @@
 #  suburb         :string(255)
 #  postcode       :integer
 #  state          :string(255)
+#  map_address    :text
 #  start_time     :time
 #  finish_time    :time
 #

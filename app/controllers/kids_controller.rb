@@ -31,7 +31,7 @@ class KidsController < ApplicationController
   def destroy
     kid = Kid.find params[:id]
     kid.delete
-    redirect_to kids
+    redirect_to kids_path
   end
 
   private

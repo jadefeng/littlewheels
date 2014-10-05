@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20141002230144) do
     t.string  "suburb"
     t.integer "postcode"
     t.string  "state"
+    t.text    "map_address"
     t.time    "start_time"
     t.time    "finish_time"
   end
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20141002230144) do
     t.string   "suburb"
     t.integer  "postcode"
     t.string   "state"
+    t.text     "map_address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

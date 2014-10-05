@@ -14,6 +14,7 @@
 #  suburb             :string(255)
 #  postcode           :integer
 #  state              :string(255)
+#  map_address        :text
 #  created_at         :datetime
 #  updated_at         :datetime
 #

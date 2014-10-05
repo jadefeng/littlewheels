@@ -22,3 +22,6 @@
 <div>
 	Finish Time: <%= @school.finish_time.strftime "%I:%M %p"  %>
 </div>
+
+<%= link_to('Edit School', edit_school_path(@school))   %>
+<%= link_to 'Delete', @school, :method => :delete, :data => { :confirm => "Are you sure?" } %>

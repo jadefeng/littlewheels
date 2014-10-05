@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :suburb		# Address
     	t.integer :postcode			# Address 
     	t.string :state
+        t.text :map_address
 
     	t.timestamps
     end

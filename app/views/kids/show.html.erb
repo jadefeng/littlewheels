@@ -6,4 +6,7 @@
 <%= @kid.gender  %>
 <%= @kid.description  %>
 <% user = User.find @kid.user_id  %>
-	<%= user.username if user.username %>
+	<%= user.username if user %>
+
+<%= link_to('Edit Student', edit_kid_path(@kid))   %>
+<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } %>

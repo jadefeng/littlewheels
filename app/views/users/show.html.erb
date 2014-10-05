@@ -13,3 +13,10 @@
 
 <h4> Address: <%= @user.street_address  %>, <%= @user.suburb  %>, <%= @user.postcode  %>, <%= @user.state  %> </h4>
 
+<%= link_to('Edit User', edit_user_path(@user))   %>
+<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+
+<h1>Children</h1>
+<% 
+kids = Kid.find params[:id] %>
+	<%= link_to parent.username user_path(parent)  %>

@@ -6,8 +6,11 @@
 <h4> Time: <%= @trip.desired_start_time.strftime '%I:%M %p'  %> </h4>
 <h4> Date: <%= @trip.date.strftime '%a, %d %b, %y'  %> </h4>
 
-<% user = User.find @trip.user_id  %>
-	<%= link_to(user.username, user) if user.username %>
+<% user = User.find @trip.user_id  if user %>
+	<%= link_to(user.username, user) if user %>
+
+<%= link_to('Edit Trip', edit_trip_path(@trip))   %>
+<%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" } %>
 
 To-do: 
 School.id
