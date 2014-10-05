@@ -1,2 +1,20 @@
-<h1>Kids#_form</h1>
-<p>Find me in app/views/kids/_form.html.erb</p>
+<%= form_for @kid do |f| %>
+<p>
+	<%= f.label :name  , "Name:" %>
+	<%= f.text_field :name %>
+</p>
+<p>
+	<%= f.label :dob  , "DOB:" %>
+	<%= f.text_field :dob %>
+</p>
+<p>
+	<%= f.label :period  , "Period:" %>
+	<%= f.text_field :period %>
+</p>
+<p>
+	<%= f.label :image  , "Image:" %>
+	<%= f.url_field :image %>
+</p>
+	<label></label>
+	<%= f.submit %>
+<% end %>
