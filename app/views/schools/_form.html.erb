@@ -1,2 +1,35 @@
 <h1>Schools#_form</h1>
 <p>Find me in app/views/schools/_form.html.erb</p>
+
+<%= form_for @school do |f| %>
+<p>
+	<%= f.label :name  , "Name:" %>
+	<%= f.text_field :name %>
+</p>
+<p>
+	<%= f.label :street_address  , "Street address:" %>
+	<%= f.text_field :street_address %>
+</p>
+<p>
+	<%= f.label :suburb  , "Suburb:" %>
+	<%= f.text_field :suburb %>
+</p>
+<p>
+	<%= f.label :postcode  , "Post code:" %>
+	<%= f.text_field :postcode %>
+</p>
+<p>
+	<%= f.label :state  , "State:" %>
+	<%= f.text_field :state %>
+</p>
+<p>
+	<%= f.label :state_time  , "Start time:" %>
+	<%= f.text_field :start_time %>
+</p>
+<p>
+	<%= f.label :finish_time  , "Finish time:" %>
+	<%= f.text_field :finish_time %>
+</p>
+	<label></label>
+	<%= f.submit %>
+<% end %>

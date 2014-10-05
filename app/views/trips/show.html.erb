@@ -7,7 +7,7 @@
 <h4> Date: <%= @trip.date.strftime '%a, %d %b, %y'  %> </h4>
 
 <% user = User.find @trip.user_id  %>
-	<%= user.username if user.username %>
+	<%= link_to(user.username, user) if user.username %>
 
 To-do: 
 School.id
