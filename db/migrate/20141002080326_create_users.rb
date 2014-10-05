@@ -4,14 +4,14 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :username
     	t.string :email
     	t.string :password_digest
-        
+
         t.text :image
     	t.string :phone_number
     	t.text :family_description
         t.string :car        
 
     	t.text :street_address  	# Address
-    	t.integer :suburb_id		# Address
+    	t.string :suburb		# Address
     	t.integer :postcode			# Address 
     	t.string :state
 

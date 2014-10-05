@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  name           :string(255)
 #  street_address :text
-#  suburb_id      :integer
+#  suburb         :string(255)
 #  postcode       :integer
 #  state          :string(255)
 #  start_time     :time

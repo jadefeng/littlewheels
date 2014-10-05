@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save     # => true
       # here the user is valid
+      # session[:user_id] = user.id
       redirect_to root_path   # back to the home page!
     else
       # here the user is invalid
@@ -32,8 +33,14 @@ class UsersController < ApplicationController
     redirect_to user
   end
 
+  def destroy
+    user = @current_user
+    user.delete
+    redirect_to root
+  end
+
   private
   def user_params
-    params.require(:user).permit(:username, :email, :image, :password, :password_confirmation, :image, :phone_number, :family_description, :street_address, :suburb_id, :postcode, :state, :car)
+    params.require(:user).permit(:username, :email, :image, :password, :password_confirmation, :image, :phone_number, :family_description, :street_address, :suburb, :postcode, :state, :car)
   end
 end

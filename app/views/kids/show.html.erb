@@ -1,2 +1,9 @@
 <h1>Kids#show</h1>
 <p>Find me in app/views/kids/show.html.erb</p>
+
+<%= @kid.name  %>
+<img src='<%= @kid.image  %>' >
+<%= @kid.gender  %>
+<%= @kid.description  %>
+<% user = User.find @kid.user_id  %>
+	<%= user.username if user.username %>

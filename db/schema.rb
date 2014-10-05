@@ -30,18 +30,11 @@ ActiveRecord::Schema.define(version: 20141002230144) do
   create_table "schools", force: true do |t|
     t.string  "name"
     t.text    "street_address"
-    t.integer "suburb_id"
+    t.string  "suburb"
     t.integer "postcode"
     t.string  "state"
     t.time    "start_time"
     t.time    "finish_time"
-  end
-
-  create_table "suburbs", force: true do |t|
-    t.string  "name"
-    t.integer "postcode"
-    t.string  "state"
-    t.string  "country"
   end
 
   create_table "trips", force: true do |t|
@@ -64,7 +57,7 @@ ActiveRecord::Schema.define(version: 20141002230144) do
     t.text     "family_description"
     t.string   "car"
     t.text     "street_address"
-    t.integer  "suburb_id"
+    t.string   "suburb"
     t.integer  "postcode"
     t.string   "state"
     t.datetime "created_at"

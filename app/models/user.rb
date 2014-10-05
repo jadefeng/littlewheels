@@ -11,7 +11,7 @@
 #  family_description :text
 #  car                :string(255)
 #  street_address     :text
-#  suburb_id          :integer
+#  suburb             :string(255)
 #  postcode           :integer
 #  state              :string(255)
 #  created_at         :datetime
@@ -20,8 +20,6 @@
 
 class User < ActiveRecord::Base
 	has_secure_password
-
-	belongs_to :suburb
 	has_many :kids
 	has_many :trips
 

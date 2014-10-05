@@ -1,2 +1,24 @@
 <h1>Trips#_form</h1>
 <p>Find me in app/views/trips/_form.html.erb</p>
+
+<%= form_for @trip do |f| %>
+<p>
+	<%= f.label :seats_avaliable  , "Seats Avaliable:" %>
+	<%= f.text_field :seats_avaliable %>
+</p>
+<p>
+	<%= f.label :car_desc  , "Car Description:" %>
+	<%= f.text_field :car_desc %>
+</p>
+<p>
+	<%= f.label :desired_start_time  , "Start Time:" %>
+	<%= f.text_field :desired_start_time %>
+</p>
+<p>
+	<%= f.label :date  , "Date:" %>
+	<%= f.text_field :date %>
+</p>
+
+	<label></label>
+	<%= f.submit %>
+<% end %>
