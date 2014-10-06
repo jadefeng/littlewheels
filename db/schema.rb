@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141002230144) do
     t.text     "image"
     t.text     "description"
     t.integer  "user_id"
+    t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

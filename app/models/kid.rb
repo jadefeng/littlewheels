@@ -9,6 +9,7 @@
 #  image       :text
 #  description :text
 #  user_id     :integer
+#  school_id   :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #

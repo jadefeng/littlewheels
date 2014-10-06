@@ -1,24 +1,35 @@
-<%= form_for @kid do |f| %>
-<p>
-	<%= f.label :name  , "Name:" %>
-	<%= f.text_field :name %>
-</p>
-<p>
-	<%= f.label :dob  , "DOB:" %>
-	<%= f.text_field :dob %>
-</p>
-<p>
-	<%= f.label :gender  , "gender:" %>
-	<%= f.text_field :gender %>
-</p>
-<p>
-	<%= f.label :description  , "description:" %>
-	<%= f.text_field :description %>
-</p>
-<p>
-	<%= f.label :image  , "image:" %>
-	<%= f.url_field :image %>
-</p>
-	<label></label>
-	<%= f.submit %>
-<% end %>
+<div class="form_page">
+	<%= form_for @kid do |f| %>
+	<div class="form_segment">
+		<%= f.label :first_name  , "First Name:" %>
+		<%= f.text_field :first_name , required: true%>
+	</div>
+	<div class="form_segment">
+		<%= f.label :last_name  , "Last Name:" %>
+		<%= f.text_field :last_name , required: true%>
+	</div>
+	<div class="form_segment">
+		<%= f.label :dob  , "DOB:" %>
+		<%= f.text_field :dob , required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :gender  , "gender:" %>
+		<select >
+		  <option value="male">Male</option>
+		  <option value="female">Female</option>
+		</select>
+	<div class="form_segment">
+		<%= f.label :school, "School:"  %>
+		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :description  , "description:" %>
+		<%= f.text_field :description %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :image  , "image:" %>
+		<%= f.url_field :image %>
+	</div>
+		<label></label>
+		<%= f.submit %>
+	<% end %>

@@ -4,9 +4,10 @@ class SchoolsController < ApplicationController
   end
 
   def create
-    school = School.new school_params
-    school.save   
-    redirect_to school 
+  @school = School.new school_params
+  @school.map_address = @school.name.to_s + ', ' + @school.street_address.to_s + ', ' + @school.suburb.to_s + ', ' + @school.postcode.to_s
+  @school.save   
+  redirect_to schools_path
   end
 
   def index
@@ -24,6 +25,8 @@ class SchoolsController < ApplicationController
   def update
     school = School.find params[:id]
     school.update school_params
+    school.map_address = school.name.to_s + ', ' + school.street_address.to_s + ', ' + school.suburb.to_s + ', ' + school.postcode.to_s
+    school.save
     redirect_to school
   end 
 

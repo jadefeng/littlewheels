@@ -1,6 +1,3 @@
-<h1>Users#_form</h1>
-<p>Find me in app/views/users/_form.html.erb</p>
-
 <% if @user.errors.any? %>
 	<ol>
 		<%  @user.errors.full_messages.each do |msg| %>
@@ -9,57 +6,75 @@
 	</ol>
 <% end %>
 
-<%=  form_for @user do |f|  %>
-<div>
-	<%= f.label :username %>
-	<%= f.text_field :username, :autofocus => true %>
+<div class="form_page">
+	<%=  form_for @user do |f|  %>
+	<div class="form_segment">
+		<%= f.label :username %>
+		<%= f.text_field :username, :autofocus => true, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name, required: true%>
+	</div>
+	<div class="form_segment">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name, required: true%>
+	</div>
+	<div class="form_segment">
+		<%= f.label :email %>
+		<%= f.email_field :email, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :password %>
+		<%= f.password_field :password, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :image %>
+		<%= f.url_field :image %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :phone_number %>
+		<%= f.text_field :phone_number, required: true%>
+	</div>
+	<div class="form_segment">
+		<%= f.label :family_description %>
+		<%= f.text_field :family_description %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :car_brand %>
+		<%= f.text_field :car_brand %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :car_model %>
+		<%= f.text_field :car_model %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :car_image %>
+		<%= f.url_field :car_image %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :street_address %>
+		<%= f.text_field :street_address, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :suburb %>
+		<%= f.text_field :suburb, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :postcode %>
+		<%= f.text_field :postcode, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :state %>
+		<%= f.text_field :state, required: true %>
+	</div>
+	<div class="form_segment">
+		<label> </label>
+		<%= f.submit %>
+	</div>
+	<% end %>
 </div>
-<div>
-	<%= f.label :email %>
-	<%= f.email_field :email %>
-</div>
-<div>
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-</div>
-<div>
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
-</div>
-<div>
-	<%= f.label :image %>
-	<%= f.url_field :image %>
-</div>
-<div>
-	<%= f.label :phone_number %>
-	<%= f.text_field :phone_number %>
-</div>
-<div>
-	<%= f.label :family_description %>
-	<%= f.text_field :family_description %>
-</div>
-<div>
-	<%= f.label :car %>
-	<%= f.text_field :car %>
-</div>
-<div>
-	<%= f.label :street_address %>
-	<%= f.text_field :street_address %>
-</div>
-<div>
-	<%= f.label :suburb %>
-	<%= f.text_field :suburb %>
-</div>
-<div>
-	<%= f.label :postcode %>
-	<%= f.text_field :postcode %>
-</div>
-<div>
-	<%= f.label :state %>
-	<%= f.text_field :state %>
-</div>
-<div>
-	<%= f.submit %>
-</div>
-
-<% end %>

@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    @user.map_address = @user.street_address.to_s + ', ' + @user.suburb.to_s + ', ' + @user.postcode.to_s
     if @user.save     # => true
       # here the user is valid
       # session[:user_id] = user.id
-      @user.map_address = '#{params[:street_address]}, #{params[:suburb]}, #{params[:postcode]}'
       redirect_to root_path   # back to the home page!
     else
       # here the user is invalid
@@ -31,6 +31,8 @@ class UsersController < ApplicationController
   def update
     user = @current_user
     user.update user_params
+    user.map_address = user.street_address.to_s + ', ' + user.suburb.to_s + ', ' + user.postcode.to_s
+    user.save
     redirect_to user
   end
 

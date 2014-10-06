@@ -1,24 +1,35 @@
-<h1>Trips#_form</h1>
-<p>Find me in app/views/trips/_form.html.erb</p>
+<div class="form_page">
+	<%= form_for @trip do |f| %>
+	<div class="form_segment">
+		<%= f.label :seats_avaliable  , "Seats Avaliable:" %>
+		<select name="seats_avaliable">
+		  <option value="1">1</option>
+		  <option value="2">2</option>
+		  <option value="3">3</option>
+		</select>
+	</div>
+	<div class="form_segment">
+		<%= f.label :school, "School Destination:"  %>
+		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :direction  , "Direction:" %>
+		<select>
+			<option value='pickup'>Pick-up</option>
+			<option value='dropoff'>Drop-off</option>
+		</select>
+	</div>
 
-<%= form_for @trip do |f| %>
-<p>
-	<%= f.label :seats_avaliable  , "Seats Avaliable:" %>
-	<%= f.text_field :seats_avaliable %>
-</p>
-<p>
-	<%= f.label :car_desc  , "Car Description:" %>
-	<%= f.text_field :car_desc %>
-</p>
-<p>
-	<%= f.label :desired_start_time  , "Start Time:" %>
-	<%= f.text_field :desired_start_time %>
-</p>
-<p>
-	<%= f.label :date  , "Date:" %>
-	<%= f.text_field :date %>
-</p>
+	<div class="form_segment">
+		<%= f.label :desired_start_time  , "Start Time:" %>
+		<%= f.time_field :desired_start_time, required: true %>
+	</div>
+	<div class="form_segment">
+		<%= f.label :date  , "Date:" %>
+		<%= f.date_field :date, required: true %>
+	</div>
 
-	<label></label>
-	<%= f.submit %>
-<% end %>
+		<label></label>
+		<%= f.submit %>
+	<% end %>
+</div>

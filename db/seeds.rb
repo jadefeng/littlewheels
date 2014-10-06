@@ -8,15 +8,15 @@
 
 User.destroy_all
 # Difficult to add users without the password digest
-
+User.create()
 
 Kid.destroy_all
  
-# Kid.create(:name => "Jack Smith", :dob => "Feburary 12, 2006", :gender => "male")
-# Kid.create(:name => "Sally Smith", :dob => "January 12, 2009", :gender => "female")
-# Kid.create(:name => "Alison Morris", :dob => "March 12, 2010", :gender => "female")
-# Kid.create(:name => "Jade Feng", :dob => "December 12, 2008", :gender => "female")
-# Kid.create(:name => "James Feng", :dob => "June 12, 2009", :gender => "male")
+Kid.create(:first_name => "Jack", :last_name => "Smith", :dob => "Feburary 12, 2006", :gender => "male", :school_id => 1, :user_id => 1 )
+Kid.create(:first_name => "Sally", :last_name => " Smith", :dob => "January 12, 2009", :gender => "female", :school_id => 1, :user_id => 1 )
+Kid.create(:first_name => "Alison", :last_name => " Morris", :dob => "March 12, 2010", :gender => "female", :school_id => 1, :user_id => 2 )
+Kid.create(:first_name => "Jade", :last_name => " Feng", :dob => "December 12, 2008", :gender => "female", :school_id => 1, :user_id => 3 )
+Kid.create(:first_name => "James", :last_name => " Feng", :dob => "June 12, 2009", :gender => "male", :school_id => 1, :user_id => 3 )
 
 School.destroy_all
 

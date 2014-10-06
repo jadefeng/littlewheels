@@ -1,12 +1,26 @@
-<h1>Kids#show</h1>
-<p>Find me in app/views/kids/show.html.erb</p>
+<div class="show_column">
+	<h1> <%= @kid.name  %> </h1>
+	<img src='<%= @kid.image  %>' >
+</div>
 
-<%= @kid.name  %>
-<img src='<%= @kid.image  %>' >
-<%= @kid.gender  %>
-<%= @kid.description  %>
-<% user = User.find @kid.user_id  %>
-	<%= user.username if user %>
+<div class="show_column">
+	<h2> <%= @kid.gender  %> </h2>
+	<h2> <%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h2>
+	<h2> <% @school = (School.find @kid.school_id)  %> 
+			<%= link_to(@school.name, @school)  %></h2>
+	<h3> <%= @kid.description  %> </h3>
 
-<%= link_to('Edit Student', edit_kid_path(@kid))   %>
-<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+	<div class="show_button edit"> 
+		<%= link_to('Edit Student', edit_kid_path(@kid)) if @current_user.id = @kid.user_id %> 
+	</div>
+
+	<div class="show_button delete"> 
+		<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
+	</div>
+</div>
+
+<div class="show_column">
+	<h1>Parent:</h1>
+	<% user = User.find @kid.user_id  %>
+		<%= link_to(user.username, user_path) %>
+</div>

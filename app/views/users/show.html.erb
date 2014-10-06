@@ -1,22 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<h2>Welcome to the page for <%= @user.username  %>!</h2>
-
-<h3>User since: <%=  @user.created_at.strftime '%B %m %Y' %></h3>
- 
+<h2><%= @user.username  %>!</h2>
 <img src=<%= @user.image  %> >
 
 <h3>Email: <%= @user.email  %> </h3>
 <h3>Phone Number: <%= @user.phone_number  %> </h3>
 <h4> <%= @family_description  %> </h4>
 
-<h4> Address: <%= @user.street_address  %>, <%= @user.suburb  %>, <%= @user.postcode  %>, <%= @user.state  %> </h4>
+<h4> Address: <%= @user.map_address  %> </h4>
 
-<%= link_to('Edit User', edit_user_path(@user))   %>
-<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+<%= link_to('Edit User', edit_user_path(@user)) if @current_user.id = @user.id  %>
+<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @user.id  %>
 
-<h1>Children</h1>
-<% 
-kids = Kid.find params[:id] %>
-	<%= link_to parent.username user_path(parent)  %>
+<h1>Children of <%= @user.username %></h1>
+<% @user.kids.each do |kid| %>
+	<%= link_to kid.name, kid  %>
+<% end %>
