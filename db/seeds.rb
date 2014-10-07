@@ -22,6 +22,7 @@ Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :
 School.destroy_all
 
 School.create(
+	:id => 1,
 	:name => "Hurstville Adventist School", 
 	:street_address => "30 Wright Street",
 	:suburb => "Hurstville",
@@ -30,6 +31,7 @@ School.create(
 	)
 
 School.create(
+	:id => 2,
 	:name => "Hurstville Public School", 
 	:street_address => "Forest Road",
 	:suburb => "Hurstville",
@@ -40,8 +42,8 @@ School.create(
 
 Trip.destroy_all
 
-Trip.create(:school_id => 1, :direction => 'pickup', :user_id => 1, :seats_avaliable => 2, :desired_start_time => "7:30AM", :date => "3 October 2014" )
-Trip.create(:school_id => 1, :direction => 'pickup', :user_id => 1, :seats_avaliable => 3, :desired_start_time => "7:30AM", :date => "3 October 2014" )
-Trip.create(:school_id => 1, :direction => 'dropoff', :user_id => 1, :seats_avaliable => 1, :desired_start_time => "7:30AM", :date => "3 October 2014" )
-Trip.create(:school_id => 1, :direction => 'dropoff', :user_id => 1, :seats_avaliable => 3, :desired_start_time => "8:00AM", :date => "3 October 2014" )
-Trip.create(:school_id => 1, :direction => 'dropoff', :user_id => 1, :seats_avaliable => 2, :desired_start_time => "8:00AM", :date => "3 October 2014" )
+Trip.create(:school_id => 1, :direction => 'pickup', :user_id => 1, :seats_available => 2, :desired_start_time => "7:30AM", :date => "3 October 2014" )
+Trip.create(:school_id => 1, :direction => 'pickup', :user_id => 1, :seats_available => 3, :desired_start_time => "7:30AM", :date => "3 October 2014" )
+Trip.create(:school_id => 1, :direction => 'dropoff', :user_id => 2, :seats_available => 1, :desired_start_time => "7:30AM", :date => "3 October 2014" )
+Trip.create(:school_id => 1, :direction => 'dropoff', :user_id => 2, :seats_available => 3, :desired_start_time => "8:00AM", :date => "3 October 2014" )
+Trip.create(:school_id => 1, :direction => 'dropoff', :user_id => 2, :seats_available => 2, :desired_start_time => "8:00AM", :date => "3 October 2014" )

@@ -17,6 +17,7 @@ class KidsController < ApplicationController
   
   def show
     @kid = Kid.find params[:id]
+    @result = Geocoder.search(@kid.user.map_address).first
 
   end
 

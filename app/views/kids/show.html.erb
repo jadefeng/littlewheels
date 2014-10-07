@@ -1,30 +1,55 @@
 <div class="container">
 
 <div class="show_column">
-	<h1> <%= @kid.first_name  %> </h1>
+	<h1> <%= @kid.first_name  %></h1>
 	<img src='<%= @kid.image  %>' >
+	<h4> <strong>Gender: </strong><%= @kid.gender.capitalize  %> </h4>
+	<h4> <strong>Age: </strong><%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h4>
+	<h4> <strong>School: </strong><% @school = (School.find @kid.school_id)  %> <%= link_to(@school.name, @school)  %></h4>
+	<h4> <%= @kid.description  %> </h4>
 </div>
 
 <div class="show_column">
-	<h3> <%= @kid.gender  %> </h3>
-	<h3> <%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h3>
-	<h3> <% @school = (School.find @kid.school_id)  %> 
-			<%= link_to(@school.name, @school)  %></h3>
-	<h3> <%= @kid.description  %> </h3>
-
-	<div class="btn btn-lg btn-light"> 
-		<%= link_to 'Edit Student', edit_kid_path(@kid)  if @current_user.id = @kid.user_id %> 
-	</div>
-
-	<div class="btn btn-lg btn-dark"> 
-		<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
-	</div>
-</div>
-
-<div class="show_column">
-	<h1>Parent:</h1>
 	<% user = User.find @kid.user_id  %>
-		<%= link_to(user.username, user_path) %>
-</div>
+		<h2><%= link_to("Parent", user_path) %>: <%= user.first_name  %> <%= user.last_name  %></h2>
+		<%= image_tag(user.image) %>
+		<h4><strong>Suburb:</strong> <%= user.suburb %>, <%= user.postcode %></h4>
+
+<!-- Contacts -->
+	     <div class="col-lg-10 col-lg-offset-1 text-center">
+	        <ul class="list-unstyled">
+                <li><h4><i class="fa fa-phone fa-fw"></i> <%= number_to_phone(user.phone_number)  %></h4></li>
+                <li><h4><i class="fa fa-envelope-o fa-fw"></i>  <a href=<%= user.email %>><%= user.email %></a></h4></li>
+                <li> - </li>
+            </ul>
+            <ul class="list-inline">
+                <li>
+                    <a href=<%= user.facebook  %>><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                </li>
+                <li>
+                    <a href=<%= user.twitter  %>><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                </li>
+            </ul>	        	
+		</div>
+
+
+
+	<% if @current_user.id == @kid.user_id  %>
+		<div class="btn btn-group-lg btn-warning"> 
+			<%= link_to 'Edit Student', edit_kid_path(@kid) %> 
+		</div>
+		<div class="btn btn-group-lg btn-danger"> 
+			<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
+		</div>
+	<% end %>
+	</div>
+
+	<div class="show_column">
+		<iframe
+		  width="100%" height="500" marginheight="0" marginwidth="0" frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
+		    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
+		</iframe>
+	</div>
 
 </div>

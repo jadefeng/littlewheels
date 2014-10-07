@@ -1,7 +1,7 @@
 class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
-    	t.integer :seats_avaliable
+    	t.integer :seats_available
     	
         t.integer :user_id 			# Driver / start address
     	t.integer :school_id        # Destination

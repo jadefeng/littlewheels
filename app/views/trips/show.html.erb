@@ -35,8 +35,11 @@
 		<h4> Car: <%= @trip.user.car_brand  %> <%= @trip.user.car_model  %> </h4>
 		<p> <%= image_tag(@trip.user.car_image) %> </p>
 
-		<p> <%= link_to('Edit Trip', edit_trip_path(@trip)) if @current_user.id = @trip.user_id  %> </p>
-		<p> <%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @trip.user_id %> </p>
+		<% if @current_user.id == @trip.user_id  %>
+			<div class="btn btn-group-lg btn-warning" > <%= link_to('Edit Trip', edit_trip_path(@trip)) %> </div>
+			<div class="btn btn-group-lg btn-danger" > <%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" }%> </div>
+		<% end %>
+
 	</div>
 
 	<div class="show_column">

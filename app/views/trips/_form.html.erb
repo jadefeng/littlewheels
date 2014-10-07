@@ -2,10 +2,12 @@
 	<%= form_for @trip do |f| %>
 	<div class="form_segment">
 		<%= f.label :seats_available  , "Seats Available:" %>
-		<select>
-		  <option  name="seats_available" value="1">1</option>
-		  <option  name="seats_available" value="2">2</option>
-		  <option  name="seats_available" value="3">3</option>
+		<select name="seats_available">
+		  <option value="1">1</option>
+		  <option value="2">2</option>
+		  <option value="3">3</option>
+		  <option value="4">4</option>
+
 		</select>
 	</div>
 	<div class="form_segment">
@@ -15,8 +17,8 @@
 	<div class="form_segment">
 		<%= f.label :direction  , "Direction:" %>
 		<select>
-			<option value="pickup">Pick-up</option>
-			<option value="dropoff">Drop-off</option>
+			<option value="pickup">Pick-up to school</option>
+			<option value="dropoff">Drop-off from school</option>
 		</select>
 	</div>
 
