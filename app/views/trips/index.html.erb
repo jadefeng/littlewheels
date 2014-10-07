@@ -2,9 +2,26 @@
 	<h1>Avaliable Trips</h1>
 	<ul>
 		<% @trips.each do |trip| %> 
-			<div class="index_box">
+		<div class="index_box">
+			<div class="index">
 			<li> <%= link_to(trip.id, trip)  %> </li>
 			</div>
+			<div class="index">
+
+			</div>
+
+			<div class="index">
+		<% @origin = Geocoder.search(trip.user.map_address).first %>
+		<% @destination = Geocoder.search(trip.school.map_address).first %>
+
+		<iframe
+		  width="300"
+		  height="190"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ&origin=<%= @origin.formatted_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @destination.formatted_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving ">
+		</iframe>
+			</div>
+		</div>
 		<% end %>
 	</ul>
 </div>
