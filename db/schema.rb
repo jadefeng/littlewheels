@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20141007050210) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
+    t.text     "facebook"
+    t.text     "twitter"
     t.text     "image"
     t.string   "phone_number"
     t.text     "family_description"

@@ -31,7 +31,7 @@ class TripsController < ApplicationController
   def destroy
     trip = Trip.find params[:id]
     trip.delete
-    redirect_to trips
+    redirect_to '/trips'
   end
 
   def book
@@ -44,6 +44,6 @@ class TripsController < ApplicationController
 
   private
   def trip_params
-    params.require(:trip).permit(:seats_avaliable, :user_id, :school_id, :car_desc, :desired_start_time, :date)
+    params.require(:trip).permit(:seats_available, :direction, :user_id, :school_id, :desired_start_time, :date)
   end
 end

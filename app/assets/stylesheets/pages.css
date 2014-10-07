@@ -1,12 +1,12 @@
 
 body {
 	margin: 0;
+	padding-bottom: 5px;
 }
 .container {
 	max-width: 960px;
 	margin: auto;
-	margin-top: 50px;
-	margin-bottom: 100px
+	padding-top: 15px
 }
 
 .header {
@@ -22,25 +22,52 @@ ul {
 }
 
 nav li {
-    text-align: right;	
 	padding-right: 1em;
     list-style-type: none;
 }
 
 .nav_bar_top {
-	padding: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	font-size: 1.2em;
 	background-color: #FFE168;
 }
 
-
+.nav_bar_top ul {
+	margin-left	: 	50px;
+}
 .nav_bar_top li {
+	min-width: 100px;
+	display: inline;
 	display: inline;
 	text-align: center;
-	padding-left: 100px;
-
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 }
 
+
+.inline .btn {
+	display: inline-block;
+	width: 100px;
+	margin: 10px;
+}
+
+.icon {
+	margin-top: auto;
+	margin-left: 10px;
+	padding: 0px;	
+	vertical-align: top;
+	display: block;
+}
+
+.profile_icon {	
+	width: 65px;
+	height: 65px;
+	border-radius: 100%;
+	position: absolute;
+	z-index: 100000;
+
+}
 input, label, select, submit {
 	font-size: 1em;
 	width: 180px;
@@ -74,6 +101,7 @@ input, label, select, submit {
 
 .show_column {
 	width: 300px;
+	min-height: 500px;
 	background-color: #FFE168;
 	display: inline-table;
 	vertical-align: top;
@@ -90,7 +118,9 @@ input, label, select, submit {
 
 .show_box {
 	width: 100%;
-	border: 1px dashed black;
+	background-color: rgba(249, 193, 94, 0.5);
+	box-shadow: 2px 2px gray;
+	margin-bottom: 10px;
 	text-align: left;
 }
 
@@ -105,23 +135,10 @@ input, label, select, submit {
 	border-radius: 100%;
 }
 
-.inline .btn {
-	display: inline-block;
-	width: 100px;
-	margin: 10px;
-}
 
-.profile_icon {
-	margin-left: 10px;
-	width: 120px;
-	height: 120px;
-	border-radius: 100%;
-	position: absolute;
-	float: top;
-	z-index: 100000;
-}
 
-.icon {
-	vertical-align: top;
-	display: inline-block;
+@media only screen and (max-width: 1100px) {
+    .nav_bar_top {
+        display: none;
+    }
 }

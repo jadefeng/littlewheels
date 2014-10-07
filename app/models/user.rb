@@ -8,6 +8,8 @@
 #  last_name          :string(255)
 #  email              :string(255)
 #  password_digest    :string(255)
+#  facebook           :text
+#  twitter            :text
 #  image              :text
 #  phone_number       :string(255)
 #  family_description :text

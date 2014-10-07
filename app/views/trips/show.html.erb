@@ -3,13 +3,13 @@
 	<div class="show_column">
 		
 		<h3><strong> <%= link_to(@trip.school.name, school_path(@trip.school))  %> </h3> </strong>
-		<h4><strong>Direction: </strong> <%= @trip.direction.capitalize  %></h4>
-		<h4> Time: <%= @trip.desired_start_time.strftime "%l:%M %p"  %> </h4>
-		<h4> Date: <%= @trip.date.strftime "%a, %B %d, %Y"  %> </h4>
+		<h4><strong>Direction: </strong> <%= @trip.direction  %></h4>
+		<h4> <strong>Time: </strong><%= @trip.desired_start_time.strftime "%l:%M %p"  %> </h4>
+		<h4> <strong>Date: </strong><%= @trip.date.strftime "%a, %B %d, %Y"  %> </h4>
 		<br>
 	<div class="request_seat">
-	<h3>Request a seat</h3>
-	<% if @trip.seats_remaining > 0 %>
+	<h3>Request a seat - NEED TO CHANGE TO SEATS_REMAINING</h3>
+ 	<% if @trip.seats_available > 0 %>
 		<%= form_tag trip_book_path(@trip) do   %> 
 			<%= label_tag :kids, "Add kid to trip:"  %>
 			<select name="kid_id">
@@ -24,14 +24,14 @@
 	<% else %>
 		<h4>Sorry. There are no avaliable seats.</h4>
 	<% end %>
-	</div> 
+	</div>
 	<br>
 
 	</div>
 
 	<div class="show_column">
 		<h3> Driver: <%= link_to @trip.user.first_name, @trip.user  %></h3>
-		<h4> Seats Remaining: <%= @trip.seats_remaining  %> </h4>
+		<h4> Seats Remaining: <%= @trip.seats_available  %> </h4>
 		<h4> Car: <%= @trip.user.car_brand  %> <%= @trip.user.car_model  %> </h4>
 		<p> <%= image_tag(@trip.user.car_image) %> </p>
 
@@ -60,15 +60,29 @@
 	</div>
 
     <section id="contact" class="map">
-    <% number =  %>
+    <% if @trip.direction == 'pickup' %>
+	    <% @origin = @trip.user.map_address %>
+	    <% @destination = @trip.school.map_address %>
+    <% else %>
+    	 <%@destination = @trip.user.map_address %>
+	    <% @origin = @trip.school.map_address %>
+    <% end %>
 
+    <% if @trip.kids.length > 0 %>
 	<iframe
 	width="100%" height="100%" marginheight="0" marginwidth="0"
 	  frameborder="0" style="border:0"
 	  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
-	  &origin=<%= @trip.user.map_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @trip.school.map_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving&waypoints=<% @trip.kids.each_with_index do |kid, index| %><% if index != (@trip.kids.length - 1) %><%=kid.user.map_address%>|<% else %><%=kid.user.map_address%><%end%><%end%>"
+	  &origin=<%= @origin.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @destination.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving&waypoints=<% @trip.kids.each_with_index do |kid, index| %><% if index != (@trip.kids.length - 1) %><%=kid.user.map_address%>|<% else %><%=kid.user.map_address%><%end%><%end%>"
 	</iframe>
-
+	<% else #if there is no new passengers %> 
+	<iframe
+	width="100%" height="100%" marginheight="0" marginwidth="0"
+	  frameborder="0" style="border:0"
+	  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
+	  &origin=<%= @origin.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @destination.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving"
+	</iframe>
+	<% end %>
 	</section>
 
 

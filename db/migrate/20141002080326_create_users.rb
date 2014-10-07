@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration
         t.string :last_name
     	t.string :email
     	t.string :password_digest
+        t.text :facebook
+        t.text :twitter
 
         t.text :image
     	t.string :phone_number

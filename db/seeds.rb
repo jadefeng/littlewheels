@@ -8,14 +8,15 @@
 
 User.destroy_all
 # # Difficult to add users without the password digest
-User.create(:id => 1, :username => "jadefeng", :first_name => "Jade", :last_name => "Feng", :email => "j.feng.1991@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW", :image => "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/1966726_10152790385673636_550276843_n.jpg?oh=926e956835b9055a22542658e0ba727f&oe=54B964B0&__gda__=1421143784_2817e7577b75a158175785c1588e8f69", :phone_number => "0404899780", :family_description => "", :car_brand => nil, :car_model => nil, :car_image => nil, :street_address => "4A O'Briens Rd", :suburb => "Hurstville", :postcode => 2220, :state => "NSW", :map_address => "4A O'Briens Rd, Hurstville, 2220")
+User.create(:id => 1, :facebook => 'https://facebook.com/jadefeng', :twitter => 'https://twitter.com/fengjade', :username => "jadefeng", :first_name => "Jade", :last_name => "Feng", :email => "j.feng.1991@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW", :image => "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/1966726_10152790385673636_550276843_n.jpg?oh=926e956835b9055a22542658e0ba727f&oe=54B964B0&__gda__=1421143784_2817e7577b75a158175785c1588e8f69", :phone_number => "0404899780", :family_description => "", :car_brand => nil, :car_model => nil, :car_image => nil, :street_address => "4A O'Briens Rd", :suburb => "Hurstville", :postcode => 2220, :state => "NSW", :map_address => "4A O'Briens Rd, Hurstville, 2220")
+User.create(:id => 2, :username=>"phil", :first_name=>"Phil", :last_name=>"Jacob", :email=>"phil@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW",  :image=>"http://imgs.abduzeedo.com/files/articles/20-beautiful-pictures-cats/Darn_Good_Looking_Cat_by_mamazmeilor.jpg", :phone_number=>"61404899780", :facebook=>"https://www.facebook.com/jadefeng", :twitter=>"https://twitter.com/fengjade", :family_description=>"Blah blah blah family description", :car_brand=>"Mazda", :car_model=>"3", :car_image=>"http://www.mazda.com.au/assets/cars/allnewmazda3/sedan/overview/standard-features-panel/1.2.1.1-sp25.png", :street_address=>"184 Old South Headroad", :suburb=>"Bellevue Hill", :map_address => "184 Old South Headroad, Bellevue Hill, 2023, NSW", :postcode=>2023, :state=>"NSW")
 
-# Kid.destroy_all
+Kid.destroy_all
  
 Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "Jack", :last_name => "Smith", :dob => "Feburary 12, 2006", :gender => "male", :school_id => 1, :user_id => 1 )
-Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "Sally", :last_name => " Smith", :dob => "January 12, 2009", :gender => "female", :school_id => 1, :user_id => 1 )
+Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "Sally", :last_name => " Smith", :dob => "January 12, 2009", :gender => "female", :school_id => 1, :user_id => 2 )
 Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "Alison", :last_name => " Morris", :dob => "March 12, 2010", :gender => "female", :school_id => 2, :user_id => 1 )
-Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "Jade", :last_name => " Feng", :dob => "December 12, 2008", :gender => "female", :school_id => 2, :user_id => 1 )
+Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "Jade", :last_name => " Feng", :dob => "December 12, 2008", :gender => "female", :school_id => 2, :user_id => 2 )
 Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :first_name => "James", :last_name => " Feng", :dob => "June 12, 2009", :gender => "male", :school_id => 1, :user_id => 1 )
 
 School.destroy_all

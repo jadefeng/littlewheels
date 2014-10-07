@@ -18,7 +18,7 @@ class Trip < ActiveRecord::Base
 	belongs_to :school
 	belongs_to :user
 
-	def seats_remaining
-		self.seats_available - self.kids.length
+	def self.seats_remaining
+		return self.seats_available - self.kids.length
 	end
 end

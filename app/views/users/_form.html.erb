@@ -41,6 +41,14 @@
 		<%= f.text_field :phone_number, required: true%>
 	</div>
 	<div class="form_segment">
+		<%= f.label :facebook %>
+		<%= f.url_field :facebook%>
+	</div>
+	<div class="form_segment">
+		<%= f.label :twitter %>
+		<%= f.url_field :twitter%>
+	</div>
+	<div class="form_segment">
 		<%= f.label :family_description %>
 		<%= f.text_field :family_description %>
 	</div>
