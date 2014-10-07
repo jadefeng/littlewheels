@@ -12,7 +12,7 @@
 <div class="show_column">
 	<h2><%= link_to @trip.user.first_name, @trip.user  %></h2>
 	<h2>Date: <%= @trip.date %></h2>
-	<h2>Time: <%= @trip.time %></h2>
+	<h2>Time: <%= @trip.desired_start_time %></h2>
 </div>
 
 <%= link_to('Edit Trip', edit_trip_path(@trip)) if @current_user.id = @trip.user_id  %>

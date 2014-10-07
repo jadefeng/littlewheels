@@ -1,10 +1,12 @@
 <div class="container">
 
 	<div class="show_column">
-		<h2><%= @user.username  %>!</h2>
+		<h2><%= @user.username  %></h2>
 		<img src=<%= @user.image  %> >
-		<h3>Email: <a href="mailto:"<%= @user.email %>> Email User </a> </h3>
-		<h3> Phone Number: <%= @user.phone_number  %> </h3>
+	<h3><%= @user.first_name  %> <%= @user.last_name  %></h3>
+
+		<h4><a href="mailto:"<%= @user.email %>> <%= @user.email %> </a> </h4>
+		<h4> <%= number_to_phone(@user.phone_number)  %> </h4>
 	</div>
 
 	<div class="show_column">
@@ -16,18 +18,37 @@
 		    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
 		</iframe>
 
-		<%= link_to('Edit User', edit_user_path(@user)) if @current_user.id = @user.id  %>
-		<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @user.id  %>
-
 	</div>
 	<div class="show_column">
-		<h2>Children</h2>
-		<div class="show_box">
+		<h2><%=  link_to "Children", kids_path %></h2>
 		<% @user.kids.each do |kid| %>
-			<%= link_to kid.first_name, kid  %>
-			<%= kid.school.name  %>
-			<%= kid.dob  %>
-		<% end %>
+		<div class="show_box">
+			<div class="show_box_smaller">
+			<%= image_tag kid.image  %>
+			</div>
+
+			<div class="show_box_smaller">
+				<ul> 
+					<li> <%= link_to kid.first_name, kid  %> </li>
+					<li> <%= kid.school.name  %> </li>
+					<li><%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old </li>
+				</ul>
+			</div>
 		</div>
+		<% end %>
+
+		<h2><%= link_to "Trips", trips_path %></h2>
+		<% @user.trips.each do |trip| %>
+		<div class="show_box">
+			<ul>
+			<li> <strong> Date: </strong> <%= link_to(trip.date, trip)  %> </li>
+
+			<li> <strong> Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p"  %> </li>
+
+			<li> <strong> Direction: </strong> <%= trip.direction.capitalize  %> </li>
+			<li> <strong> School: </strong> <%= trip.school.name  %> </li>
+			</ul>
+		</div>
+		<% end %>
 	</div>
 </div>

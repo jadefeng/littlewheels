@@ -21,10 +21,10 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: right;
 }
 
 nav li {
+    text-align: right;	
 	padding-right: 1em;
 }
 
@@ -38,30 +38,58 @@ input, label, select, submit {
 .index_box {
 	width: 100%;
 	height: 200px;
-	border: 1px solid black;
+	box-shadow: 5px 5px grey;
 	background-color: #FFE168;
 	color: black;
 	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.index {
+	display: inline-table;
+	width: 300px;
+	height: 100%;
+	vertical-align: top;
 	overflow: hidden;
 }
 
-.index_box img {
+.index img {
 	height: 100%;
+	width: auto;
+	text-align: right;
 }
 
 .show_column {
 	width: 300px;
 	background-color: #FFE168;
-	color: white;
 	display: inline-table;
 	vertical-align: top;
 	padding: 5px;
+	text-align: center;
 }
 
-div img {
-	width: 290px;
-	height: 290px;
+.show_column img {
+	width: 200px;
+	height: 200px;
 	padding: 10px;
+	border-radius: 100%;
+}
+
+.show_box {
+	width: 100%;
+	border: 1px dashed black;
+	text-align: left;
+}
+
+.show_box_smaller {
+	display: inline-block;
+
+}
+
+.show_box_smaller img {
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
 }
 
 .inline .btn {

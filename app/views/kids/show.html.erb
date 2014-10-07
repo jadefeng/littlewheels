@@ -1,33 +1,23 @@
 <div class="container">
 
 <div class="show_column">
-	<h1> <%= @kid.name  %> </h1>
+	<h1> <%= @kid.first_name  %> </h1>
 	<img src='<%= @kid.image  %>' >
 </div>
 
 <div class="show_column">
-	<h2> <%= @kid.gender  %> </h2>
-	<h2> <%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h2>
-	<h2> <% @school = (School.find @kid.school_id)  %> 
-			<%= link_to(@school.name, @school)  %></h2>
+	<h3> <%= @kid.gender  %> </h3>
+	<h3> <%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h3>
+	<h3> <% @school = (School.find @kid.school_id)  %> 
+			<%= link_to(@school.name, @school)  %></h3>
 	<h3> <%= @kid.description  %> </h3>
 
-<aside class="call-to-action bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
 	<div class="btn btn-lg btn-light"> 
-		<%= link_to('Edit Student', edit_kid_path(@kid)), class="btn btn-lg btn-light" if @current_user.id = @kid.user_id %> 
+		<%= link_to 'Edit Student', edit_kid_path(@kid)  if @current_user.id = @kid.user_id %> 
 	</div>
 
 	<div class="btn btn-lg btn-dark"> 
-		<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" }, class="btn btn-lg btn-dark" if @current_user.id = @kid.user_id %> 
-                
-                </div>
-            </div>
-        </div>
-    </aside>
-
+		<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
 	</div>
 </div>
 

@@ -1,10 +1,29 @@
 <div class="container">
 	<h1>Other parents in your area!</h1>
-	<ul>
-		<% @users.each do |user| %> 
-		<div class="index_box">
-		<li> <%= link_to user.username, user  %> </li>
+
+	<% @users.each do |user| %> 
+	<div class="index_box">
+
+		<div class="index">
+			<img src=<%= user.image  %> >
 		</div>
-		<% end %>
-	</ul>
+		
+		<div class="index"> <h2> <%= link_to user.first_name, user  %> </h2>
+		<h3> <%= user.suburb %> </h3> 
+		</div>
+
+		<div class="index">
+
+		<% @result = Geocoder.search(user.map_address).first %>
+		<iframe
+		  width="300"
+		  height="190"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
+		    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
+		</iframe>
+
+		</div>	
+	</div>
+	<% end %>
 </div>
