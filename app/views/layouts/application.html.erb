@@ -21,11 +21,14 @@
 </head>
 <body>
 <nav>
-<% if @current_user %>
-<div class="icon">
-	<a href='/users/<%= @current_user.id %>' > <img class="profile_icon" src=<%= @current_user.image %>  > </a>
-</div>
-<% end %>
+    <div class="nav_bar_top">
+    <% if @current_user %>
+    <div class="icon">
+        <a href='/' > <img class="profile_icon" src=<%= @current_user.image %>  > </a>
+    </div>
+        <%== intellinav_short  %>
+      <% end %>
+    </div>
 </nav>
     <!-- Navigation -->
     <a id="menu-toggle" href="/" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>

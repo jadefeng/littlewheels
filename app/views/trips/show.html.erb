@@ -69,7 +69,6 @@
 	  &origin=<%= @trip.user.map_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @trip.school.map_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving&waypoints=<% @trip.kids.each_with_index do |kid, index| %><% if index != (@trip.kids.length - 1) %><%=kid.user.map_address%>|<% else %><%=kid.user.map_address%><%end%><%end%>"
 	</iframe>
 
-kid1_address|kid2_address|japanese+restaurant
 	</section>
 
 
