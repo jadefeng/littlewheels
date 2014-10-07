@@ -1,16 +1,33 @@
-<h2><%= @user.username  %>!</h2>
-<img src=<%= @user.image  %> >
+<div class="container">
 
-<h3>Email: <%= @user.email  %> </h3>
-<h3>Phone Number: <%= @user.phone_number  %> </h3>
-<h4> <%= @family_description  %> </h4>
+	<div class="show_column">
+		<h2><%= @user.username  %>!</h2>
+		<img src=<%= @user.image  %> >
+		<h3>Email: <a href="mailto:"<%= @user.email %>> Email User </a> </h3>
+		<h3> Phone Number: <%= @user.phone_number  %> </h3>
+	</div>
 
-<h4> Address: <%= @user.map_address  %> </h4>
+	<div class="show_column">
+		<iframe
+		  width="300"
+		  height="450"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
+		    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
+		</iframe>
 
-<%= link_to('Edit User', edit_user_path(@user)) if @current_user.id = @user.id  %>
-<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @user.id  %>
+		<%= link_to('Edit User', edit_user_path(@user)) if @current_user.id = @user.id  %>
+		<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @user.id  %>
 
-<h1>Children of <%= @user.username %></h1>
-<% @user.kids.each do |kid| %>
-	<%= link_to kid.name, kid  %>
-<% end %>
+	</div>
+	<div class="show_column">
+		<h2>Children</h2>
+		<div class="show_box">
+		<% @user.kids.each do |kid| %>
+			<%= link_to kid.first_name, kid  %>
+			<%= kid.school.name  %>
+			<%= kid.dob  %>
+		<% end %>
+		</div>
+	</div>
+</div>

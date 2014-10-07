@@ -1,11 +1,21 @@
+<div class="container">
 
+<h1>Avaliable Trips</h1>
+
+<div class="show_column>"
 <h4> Seats: <%= @trip.seats_avaliable  %> </h4>
 <h4> Car: <%= @trip.user.car_brand  %>, <%= @trip.user.car_model  %> </h4>
 <h4> Time: <%= @trip.desired_start_time.strftime '%I:%M %p'  %> </h4>
 <h4> Date: <%= @trip.date.strftime '%a, %d %b, %y'  %> </h4>
+</div>
 
-<h2>Driver:</h2>
-<p><%= link_to @trip.user.username, @trip.user  %></p>
+<div class="show_column">
+	<h2><%= link_to @trip.user.first_name, @trip.user  %></h2>
+	<h2>Date: <%= @trip.date %></h2>
+	<h2>Time: <%= @trip.time %></h2>
+</div>
 
-<%= link_to('Edit Trip', edit_trip_path(@trip))   %>
-<%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+<%= link_to('Edit Trip', edit_trip_path(@trip)) if @current_user.id = @trip.user_id  %>
+<%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @trip.user_id %>
+
+</div>

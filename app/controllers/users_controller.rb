@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find params[:id]
+    @result = Geocoder.search(@user.map_address).first
   end
 
   def edit

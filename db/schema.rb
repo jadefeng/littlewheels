@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20141002230144) do
   enable_extension "plpgsql"
 
   create_table "kids", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.date     "dob"
     t.string   "gender"
     t.text     "image"
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141002230144) do
     t.integer  "seats_avaliable"
     t.integer  "user_id"
     t.integer  "school_id"
-    t.string   "car_desc"
+    t.string   "direction"
     t.time     "desired_start_time"
     t.date     "date"
     t.datetime "created_at"
@@ -52,12 +53,16 @@ ActiveRecord::Schema.define(version: 20141002230144) do
 
   create_table "users", force: true do |t|
     t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
     t.text     "image"
     t.string   "phone_number"
     t.text     "family_description"
-    t.string   "car"
+    t.string   "car_brand"
+    t.string   "car_model"
+    t.string   "car_image"
     t.text     "street_address"
     t.string   "suburb"
     t.integer  "postcode"

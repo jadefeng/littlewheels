@@ -1,13 +1,16 @@
-<%= form_tag '/login' do %>
-<p>
-	<label for='username'>Username: </label>
-	<input type="text" id='username' name='username'>
-</p>
-<p>
-	<label for='password'>Password: </label>
-	<input type="password" id='password' name='password'>
-</p>
+<div class="container">
+<h1>Login</h1>
+	<%= form_tag '/login' do %>
+	<p>
+		<label for='username'>Username: </label>
+		<input type="text" id='username' name='username'>
+	</p>
+	<p>
+		<label for='password'>Password: </label>
+		<input type="password" id='password' name='password'>
+	</p>
 
-	<label></label>
-	<button>Submit</button>
-<% end %>
+		<label></label>
+		<button>Submit</button>
+	<% end %>
+</div>

@@ -1,10 +1,14 @@
-<h1>Kids#index</h1>
-<p>Find me in app/views/kids/index.html.erb</p>
+<div class="container">
+<h1>Kids in your area looking for help!</h1>
+	<ul>
+		<% @kids.each do |kid| %> 
+		<div class="index_box">
+			<div> <h2> <%= link_to kid.first_name, kid  %> </h2> </div>
+			<div>
+				<img src=<%= kid.image  %> >
+			</div>
+		</div>
+		<% end %>
+	</ul>
 
-<ul>
-	<% @kids.each do |kid| %> 
-	<div class="index_box">
-		<li> <%= link_to kid.name, kid  %> </li>
-	</div>
-	<% end %>
-</ul>
+</div>

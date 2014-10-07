@@ -1,3 +1,5 @@
+<div class="container">
+
 <div class="show_column">
 	<h1> <%= @kid.name  %> </h1>
 	<img src='<%= @kid.image  %>' >
@@ -10,12 +12,22 @@
 			<%= link_to(@school.name, @school)  %></h2>
 	<h3> <%= @kid.description  %> </h3>
 
-	<div class="show_button edit"> 
-		<%= link_to('Edit Student', edit_kid_path(@kid)) if @current_user.id = @kid.user_id %> 
+<aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+	<div class="btn btn-lg btn-light"> 
+		<%= link_to('Edit Student', edit_kid_path(@kid)), class="btn btn-lg btn-light" if @current_user.id = @kid.user_id %> 
 	</div>
 
-	<div class="show_button delete"> 
-		<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
+	<div class="btn btn-lg btn-dark"> 
+		<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" }, class="btn btn-lg btn-dark" if @current_user.id = @kid.user_id %> 
+                
+                </div>
+            </div>
+        </div>
+    </aside>
+
 	</div>
 </div>
 
@@ -23,4 +35,6 @@
 	<h1>Parent:</h1>
 	<% user = User.find @kid.user_id  %>
 		<%= link_to(user.username, user_path) %>
+</div>
+
 </div>
