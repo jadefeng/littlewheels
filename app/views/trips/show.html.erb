@@ -1,21 +1,76 @@
 <div class="container">
 
-<h1>Avaliable Trips</h1>
+	<div class="show_column">
+		
+		<h3><strong> <%= link_to(@trip.school.name, school_path(@trip.school))  %> </h3> </strong>
+		<h4><strong>Direction: </strong> <%= @trip.direction.capitalize  %></h4>
+		<h4> Time: <%= @trip.desired_start_time.strftime "%l:%M %p"  %> </h4>
+		<h4> Date: <%= @trip.date.strftime "%a, %B %d, %Y"  %> </h4>
+		<br>
+	<div class="request_seat">
+	<h3>Request a seat</h3>
+	<% if @trip.seats_remaining > 0 %>
+		<%= form_tag trip_book_path(@trip) do   %> 
+			<%= label_tag :kids, "Add kid to trip:"  %>
+			<select name="kid_id">
+				<option disabled>Select kid</option>option>
+				<% @current_user.kids.each do |kid| %>
+				  <option value="<%= kid.id %>"><%= kid.first_name %></option>
+				<% end %> 
+			</select>
+			<label></label>
+			<%= submit_tag %>
+		<% end %> 
+	<% else %>
+		<h4>Sorry. There are no avaliable seats.</h4>
+	<% end %>
+	</div> 
+	<br>
 
-<div class="show_column>"
-<h4> Seats: <%= @trip.seats_avaliable  %> </h4>
-<h4> Car: <%= @trip.user.car_brand  %>, <%= @trip.user.car_model  %> </h4>
-<h4> Time: <%= @trip.desired_start_time.strftime '%I:%M %p'  %> </h4>
-<h4> Date: <%= @trip.date.strftime '%a, %d %b, %y'  %> </h4>
-</div>
+	</div>
 
-<div class="show_column">
-	<h2><%= link_to @trip.user.first_name, @trip.user  %></h2>
-	<h2>Date: <%= @trip.date %></h2>
-	<h2>Time: <%= @trip.desired_start_time %></h2>
-</div>
+	<div class="show_column">
+		<h3> Driver: <%= link_to @trip.user.first_name, @trip.user  %></h3>
+		<h4> Seats Remaining: <%= @trip.seats_remaining  %> </h4>
+		<h4> Car: <%= @trip.user.car_brand  %> <%= @trip.user.car_model  %> </h4>
+		<p> <%= image_tag(@trip.user.car_image) %> </p>
 
-<%= link_to('Edit Trip', edit_trip_path(@trip)) if @current_user.id = @trip.user_id  %>
-<%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @trip.user_id %>
+		<p> <%= link_to('Edit Trip', edit_trip_path(@trip)) if @current_user.id = @trip.user_id  %> </p>
+		<p> <%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @trip.user_id %> </p>
+	</div>
+
+	<div class="show_column">
+		<h2>Passengers</h2>
+		<% @trip.kids.each do |kid| %>
+		<div class="show_box">
+			<div class="show_box_smaller">
+			<%= image_tag kid.image  %>
+			</div>
+
+			<div class="show_box_smaller">
+				<ul> 
+					<li> <%= link_to kid.first_name, kid  %> </li>
+					<li> <%= kid.school.name  %> </li>
+					<li> <%= kid.user.suburb  %></li>
+				</ul>
+			</div>
+		</div>
+		<% end %>
+
+	</div>
+
+    <section id="contact" class="map">
+    <% number =  %>
+
+	<iframe
+	width="100%" height="100%" marginheight="0" marginwidth="0"
+	  frameborder="0" style="border:0"
+	  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
+	  &origin=<%= @trip.user.map_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @trip.school.map_address.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving&waypoints=<% @trip.kids.each_with_index do |kid, index| %><% if index != (@trip.kids.length - 1) %><%=kid.user.map_address%>|<% else %><%=kid.user.map_address%><%end%><%end%>"
+	</iframe>
+
+kid1_address|kid2_address|japanese+restaurant
+	</section>
+
 
 </div>

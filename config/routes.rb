@@ -49,7 +49,10 @@ Rails.application.routes.draw do
   get '/users/edit' => 'users#edit', :as => :edit_user
   resources :users, :except => [:edit]
 
-  resources :kids, :schools, :trips
+  resources :kids, :schools
+  resources :trips do
+	post 'book' => 'trips#book'  	
+  end
 
   get '/login' => 'session#new'
   post 'login' => 'session#create'

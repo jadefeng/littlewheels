@@ -34,6 +34,14 @@ class TripsController < ApplicationController
     redirect_to trips
   end
 
+  def book
+    trip = Trip.find params[:trip_id]
+    kid = Kid.find params[:kid_id]
+    trip.kids << kid
+    trip.save
+    redirect_to trip
+  end
+
   private
   def trip_params
     params.require(:trip).permit(:seats_avaliable, :user_id, :school_id, :car_desc, :desired_start_time, :date)

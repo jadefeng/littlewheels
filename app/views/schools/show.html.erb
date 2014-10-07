@@ -1,21 +1,23 @@
-<h1>
-	<%= @school.name  %>
-</h1>
-<div>
-	Address: <%= @school.map_address  %>
-</div>
-<div>
-	Start Time: <%= @school.start_time.strftime "%I:%M %p"  %>
-</div>
-<div>
-	Finish Time: <%= @school.finish_time.strftime "%I:%M %p"  %>
-</div>
+<div class="container">
+	<h1>
+		<%= @school.name  %>
+	</h1>
+	<div>
+		Address: <%= @school.map_address  %>
+	</div>
+	<div>
+		Start Time: <%= @school.start_time.strftime "%I:%M %p"  %>
+	</div>
+	<div>
+		Finish Time: <%= @school.finish_time.strftime "%I:%M %p"  %>
+	</div>
 
 
-<%= link_to('Edit School', edit_school_path(@school))   %>
-<%= link_to 'Delete', @school, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+	<%= link_to('Edit School', edit_school_path(@school))   %>
+	<%= link_to 'Delete', @school, :method => :delete, :data => { :confirm => "Are you sure?" } %>
 
-<h2>Students</h2>
-<% @school.kids.each do |kid|  %>
-	<%= link_to kid.name, kid  %>
-<% end %>
+	<h2>Students</h2>
+	<% @school.kids.each do |kid|  %>
+		<%= link_to kid.first_name, kid  %>
+	<% end %>
+</div>

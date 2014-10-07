@@ -5,14 +5,20 @@
 		<img src=<%= @user.image  %> >
 	<h3><%= @user.first_name  %> <%= @user.last_name  %></h3>
 
+		<h3>Vehicle</h3>
+		<h4> <%= @user.car_brand  %> <%= @user.car_model %> </h4>
+		<%= image_tag(@user.car_image)  %>
+
+		<h3>Contact</h3>
 		<h4><a href="mailto:"<%= @user.email %>> <%= @user.email %> </a> </h4>
 		<h4> <%= number_to_phone(@user.phone_number)  %> </h4>
 	</div>
 
 	<div class="show_column">
 		<iframe
+
+		  height="600"
 		  width="300"
-		  height="450"
 		  frameborder="0" style="border:0"
 		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
 		    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
@@ -41,12 +47,14 @@
 		<% @user.trips.each do |trip| %>
 		<div class="show_box">
 			<ul>
-			<li> <strong> Date: </strong> <%= link_to(trip.date, trip)  %> </li>
+			<li><%= link_to(trip.school.name, trip) %></li>
+			<li> <strong> Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %> </li>
 
 			<li> <strong> Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p"  %> </li>
 
 			<li> <strong> Direction: </strong> <%= trip.direction.capitalize  %> </li>
 			<li> <strong> School: </strong> <%= trip.school.name  %> </li>
+			<li><strong>Seats Remaining: </strong> <%= trip.seats_remaining  %></li>
 			</ul>
 		</div>
 		<% end %>

@@ -3,7 +3,8 @@
 # Table name: kids
 #
 #  id          :integer          not null, primary key
-#  name        :string(255)
+#  first_name  :string(255)
+#  last_name   :string(255)
 #  dob         :date
 #  gender      :string(255)
 #  image       :text
