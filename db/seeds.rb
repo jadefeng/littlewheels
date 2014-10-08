@@ -18,7 +18,10 @@ school1 = School.create(
 	:street_address => "30 Wright Street",
 	:suburb => "Hurstville",
 	:postcode => 2220,
-	:map_address => "Hurstville Adventist School, 30 Wright Street, Hurstville, NSW 2220"
+	:state => "NSW",
+	:map_address => "Hurstville Adventist School, 30 Wright Street, Hurstville, NSW 2220",
+	:start_time => "9:00 AM",
+	:finish_time => "3:30 PM"
 	)
 
 school2 = School.create(
@@ -26,8 +29,10 @@ school2 = School.create(
 	:street_address => "Forest Road",
 	:suburb => "Hurstville",
 	:postcode => 2220,
-	:map_address => "Hurstville Public School, Forest Road, Hurstville, NSW 2220"
-
+	:state => "NSW",
+	:map_address => "Hurstville Public School, Forest Road, Hurstville, NSW 2220",
+	:start_time => "9:00 AM",
+	:finish_time => "3:30 PM"
 	)
 
 

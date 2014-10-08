@@ -1,4 +1,5 @@
 class KidsController < ApplicationController
+
   def new
     @kid = Kid.new
   end

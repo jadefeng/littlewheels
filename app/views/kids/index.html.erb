@@ -1,14 +1,16 @@
 <div class="container">
-<h1>Kids in your area looking for help!</h1>
+<h1>Kids in your area looking for help to go to school!</h1>
+	<div class="btn btn-group-lg btn-success  btn-index"> 
+		<%= link_to("New Kid", new_kid_path) %></div>
 	<% @kids.each do |kid| %> 
 	<div class="index_box">
 
 		<div class="index">
 			<img src=<%= kid.image  %> >
 		</div>
-		<div class="index"> <h2> <%= link_to kid.first_name, kid  %> </h2>
-		<h3> <%= kid.school.name %> </h3> 
-		<h3> <%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old </h3>
+		<div class="index"> <h3> <%= link_to kid.first_name, kid  %> </h3>
+		<h4> <%= kid.school.name %> </h4> 
+		<h4> <%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old </h4>
 		</div>
 
 		<div class="index">

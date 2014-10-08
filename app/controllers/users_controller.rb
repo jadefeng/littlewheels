@@ -23,6 +23,13 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find params[:id]
+    @school_list = []
+    
+    @user.kids.each do |kid|
+      school_name = kid.school.name
+      @school_list << school_name
+    end
+   
     @result = Geocoder.search(@user.map_address).first
   end
 

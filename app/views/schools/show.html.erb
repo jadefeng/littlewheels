@@ -1,23 +1,76 @@
 <div class="container">
-	<h1>
-		<%= @school.name  %>
-	</h1>
-	<div>
-		Address: <%= @school.map_address  %>
+	<div class="show_column">
+
+		<h2>
+			<%= @school.name  %>
+		</h2>
+		<h4>
+			<strong>Address:</strong> <%= @school.street_address  %>
+		</h4>
+		<h4>
+			<strong>Suburb:</strong> <%= @school.suburb  %>, <%= @school.postcode  %>
+		</h4>
+		<h4>
+			<strong>State:</strong> <%= @school.state  %>
+		</h4>
+		<h4>
+			<strong>Start Time:</strong> <%= @school.start_time.strftime "%I:%M %p"  %>
+		</h4>
+		<h4>
+			<strong>Finish Time:</strong> <%= @school.finish_time.strftime "%I:%M %p"  %> 
+		</h4>
+		<div class="btn btn-group-lg btn-warning"> 
+			<%= link_to('Edit School', edit_school_path(@school))   %>
+		</div>
+		<div class="btn btn-group-lg btn-danger"> 
+			<%= link_to 'Delete', @school, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+		</div>
 	</div>
-	<div>
-		Start Time: <%= @school.start_time.strftime "%I:%M %p"  %>
-	</div>
-	<div>
-		Finish Time: <%= @school.finish_time.strftime "%I:%M %p"  %>
+
+	<div class="show_column">
+	<h2>Trips</h2>
+		<% @school.trips.each do |trip|  %>
+		<div class="show_box">
+			<ul>
+			<li><strong>Driver: </strong><%= link_to(trip.user.first_name, user_path) %>, <%= trip.user.suburb  %></li>
+			<li> <strong> Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %> </li>
+
+			<li> <strong> Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p"  %> </li>
+
+			<li> <strong> Direction: </strong> <%= trip.direction.capitalize  %> </li>
+			<li><strong>Seats Remaining: </strong> <%= trip.seats_remaining  %></li>
+			</ul>
+		</div>
+		<% end %>
 	</div>
 
 
-	<%= link_to('Edit School', edit_school_path(@school))   %>
-	<%= link_to 'Delete', @school, :method => :delete, :data => { :confirm => "Are you sure?" } %>
-
+	<div class="show_column">
 	<h2>Students</h2>
 	<% @school.kids.each do |kid|  %>
-		<%= link_to kid.first_name, kid  %>
+		<div class="show_box">
+			<div class="show_box_smaller">
+				<%= image_tag(kid.image) %>
+			</div>
+			<div class="show_box_smaller">
+				<ul>
+				<li><%= link_to kid.first_name, kid  %></li>
+				<li><%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old</li>
+				<li><%= kid.user.suburb  %></li>
+				<li><strong>Parent: </strong><%= link_to kid.user.first_name, user_path  %></li>
+				</ul>
+			</div>
+		</div>
 	<% end %>
+	</div>
+
+    <section id="contact" class="map">
+		<iframe
+		  width="100%" height="500" marginheight="0" marginwidth="0" frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
+		    &q=<%= @school.map_address  %>">
+		</iframe>
+	</section>
+
+
 </div>

@@ -7,6 +7,16 @@
 	<h4> <strong>Age: </strong><%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h4>
 	<h4> <strong>School: </strong><% @school = (School.find @kid.school_id)  %> <%= link_to(@school.name, @school)  %></h4>
 	<h4> <%= @kid.description  %> </h4>
+
+<!-- Edit segment -->	
+	<% if @current_user.id == @kid.user_id  %>
+		<div class="btn btn-group-lg btn-warning"> 
+			<%= link_to 'Edit Student', edit_kid_path(@kid) %> 
+		</div>
+		<div class="btn btn-group-lg btn-danger"> 
+			<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
+		</div>
+	<% end %>
 </div>
 
 <div class="show_column">
@@ -31,17 +41,6 @@
                 </li>
             </ul>	        	
 		</div>
-
-
-
-	<% if @current_user.id == @kid.user_id  %>
-		<div class="btn btn-group-lg btn-warning"> 
-			<%= link_to 'Edit Student', edit_kid_path(@kid) %> 
-		</div>
-		<div class="btn btn-group-lg btn-danger"> 
-			<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
-		</div>
-	<% end %>
 	</div>
 
 	<div class="show_column">

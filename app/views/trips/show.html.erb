@@ -58,9 +58,9 @@
 
 			<div class="show_box_smaller">
 				<ul> 
-					<li> <%= link_to kid.first_name, kid  %> </li>
-					<li> <%= kid.school.name  %> </li>
-					<li> <%= kid.user.suburb  %></li>
+					<li> <strong> <%= link_to kid.first_name, kid  %> </strong> </li>
+					<li> <strong>School: </strong><%= kid.school.name  %> </li>
+					<li> <strong>Suburb: </strong><%= kid.user.suburb  %></li>
 				</ul>
 				<div class="btn btn-group-lg btn-warning btn-small" > <%= link_to 'Remove Child', trip_unbook_path(@trip, kid), :method => :delete %> </div>
 			</div>
