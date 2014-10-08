@@ -10,26 +10,30 @@
 		<%= f.text_field :last_name , required: true%>
 	</div>
 	<div class="form_segment">
-		<%= f.label :dob  , "DOB:" %>
-		<%= f.text_field :dob , required: true %>
+		<%= f.label :dob  , "Date of Birth:" %>
+		<%= f.date_field :dob , required: true %>
 	</div>
 	<div class="form_segment">
-		<%= f.label :gender  , "gender:" %>
-		<select name="kid[gender]">
+		<%= f.label :gender  , "Gender:" %>
+		<select name="kid[gender]" required>
 		  <option value="male">Male</option>
 		  <option value="female">Female</option>
 		</select>
+
 	<div class="form_segment">
 		<%= f.label :school, "School:"  %>
 		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true %>
 	</div>
-	<div class="form_segment">
-		<%= f.label :description  , "description:" %>
+
+<!-- 	Commenting out description because not sure what to do with it right now -->
+<!-- 	<div class="form_segment">
+		<%= f.label :description  , "Description:" %>
 		<%= f.text_field :description %>
-	</div>
+	</div> -->
+
 	<div class="form_segment">
-		<%= f.label :image  , "image:" %>
-		<%= f.url_field :image %>
+		<%= f.label :image  , "Image:" %>
+		<%= f.url_field :image, required: true %>
 	</div>
 		<label></label>
 		<%= f.submit %>

@@ -3,7 +3,7 @@
 	<%= form_for @trip do |f| %>
 	<div class="form_segment">
 		<%= f.label :seats_available  , "Seats Available:" %>
-		<select name="trip[seats_available]">
+		<select name="trip[seats_available]" required>
 		  <option value="1">1</option>
 		  <option value="2">2</option>
 		  <option value="3">3</option>
@@ -13,11 +13,11 @@
 	</div>
 	<div class="form_segment">
 		<%= f.label :school, "School Destination:"  %>
-		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true %>
+		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :prompt => "Select school", :required => true  %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :direction  , "Direction:" %>
-		<select name="trip[direction]">
+		<select name="trip[direction]" required>
 			<option value="pickup">Pick-up to school</option>
 			<option value="dropoff">Drop-off from school</option>
 		</select>

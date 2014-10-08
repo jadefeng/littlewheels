@@ -11,12 +11,22 @@ class TripsController < ApplicationController
   end
 
   def index
+    # Current user's school list 
+    @school_list = []
+    @current_user.kids.each do |kid|
+      @school_list << kid.school.id
+    end
+
     # Trips that go to your school
-    # Trip.find_by
-    # Trips that have users who are in 10 mile radius from you
     @trips = []
-    
-    @trips = Trip.all
+    @school_list.each do |school|
+      Trip.all.each do |trip|
+        if trip.school_id == school
+          @trips << trip
+        end
+      end
+    end
+
   end
   
   def show

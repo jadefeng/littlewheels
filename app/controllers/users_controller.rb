@@ -23,13 +23,25 @@ class UsersController < ApplicationController
   end
 
   def index
-    # Users that live in a 10 mile radius from you 
-
     # Users that have kids who go to your school
+    @school_list = []
+    @current_user.kids.each do |kid|
+      @school_list << kid.school.id
+    end
 
-    @users = User.all
-  end
-  
+    # Users that have kids who go to your school 
+    @users = []
+    @school_list.each do |school_id|
+      User.all.each do |user|
+        user.kids.each do |kid|
+          if kid.school_id == school_id
+            @users << user
+          end
+        end
+      end
+    end
+  end  
+
   def show
     @user = User.find params[:id]
     @school_list = []

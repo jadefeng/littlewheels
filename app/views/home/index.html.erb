@@ -6,8 +6,14 @@
 	        <h3>Building a ride-sharing community of parents to get our children to school safely and on time.</h3>
 	        <br>
 	        <div class="inline">
+		    <% if @current_user %>
+		        <a href=<%= user_path(@current_user) %> class="btn btn-dark btn-lg">My Profile</a>
+
+
+		    <% else %>
 		        <a href="/users/new" class="btn btn-dark btn-lg">Sign Up</a>
 		        <a href="/login" class="btn btn-dark btn-lg">Login</a>
+		    <% end %>
 		    </div>
        </div>
     </div>

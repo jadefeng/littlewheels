@@ -12,8 +12,20 @@ class KidsController < ApplicationController
   end
 
   def index
-    @kids = Kid.all
+    # List of schools user is part of
+    @school_list = []
+    @current_user.kids.each do |kid|
+      @school_list << kid.school.id
+    end  
 
+    @kids = []
+    @school_list.each do |school_id|
+        Kid.all.each do |kid|
+          if kid.school_id == school_id
+            @kids << kid
+          end
+        end
+      end
   end
   
   def show

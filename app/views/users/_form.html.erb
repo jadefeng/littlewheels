@@ -48,14 +48,17 @@
 		<%= f.label :twitter %>
 		<%= f.url_field :twitter%>
 	</div>
-	<div class="form_segment">
+
+	<!-- <div class="form_segment">
 		<%= f.label :family_description %>
 		<%= f.text_field :family_description %>
-	</div>
+	</div> -->
+	
 	<div class="form_segment">
 		<%= f.label :car_brand %>
-		<%= f.text_field :car_brand %>
+		<%= f.text_field :car_brand , required: true%>
 	</div>
+	
 	<div class="form_segment">
 		<%= f.label :car_model %>
 		<%= f.text_field :car_model %>
