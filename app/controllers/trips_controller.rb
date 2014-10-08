@@ -11,6 +11,11 @@ class TripsController < ApplicationController
   end
 
   def index
+    # Trips that go to your school
+    # Trip.find_by
+    # Trips that have users who are in 10 mile radius from you
+    @trips = []
+    
     @trips = Trip.all
   end
   

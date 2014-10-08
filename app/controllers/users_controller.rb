@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @user = User.new user_params
     @user.username.downcase!         # Ensuring the username is not case-sensitive
     @user.map_address = @user.street_address.to_s + ', ' + @user.suburb.to_s + ', ' + @user.postcode.to_s
+    
+    @result = Geocoder.search(@user.map_address).first
+    @user.user_latitude = @result.latitude
+    @user.user_latitude = @result.longitude
+    
     if @user.save     # => true
       # here the user is valid
       session[:user_id] = @user.id
@@ -18,19 +23,22 @@ class UsersController < ApplicationController
   end
 
   def index
+    # Users that live in a 10 mile radius from you 
+
+    # Users that have kids who go to your school
+
     @users = User.all
   end
   
   def show
     @user = User.find params[:id]
     @school_list = []
-    
     @user.kids.each do |kid|
       school_name = kid.school.name
       @school_list << school_name
     end
-   
     @result = Geocoder.search(@user.map_address).first
+
   end
 
   def edit
@@ -41,6 +49,11 @@ class UsersController < ApplicationController
     user = @current_user
     user.update user_params
     user.map_address = user.street_address.to_s + ', ' + user.suburb.to_s + ', ' + user.postcode.to_s
+
+    @result = Geocoder.search(user.map_address).first
+    user.user_latitude = @result.latitude
+    user.user_latitude = @result.longitude
+    
     user.save
     redirect_to user
   end

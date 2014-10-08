@@ -17,6 +17,8 @@ class KidsController < ApplicationController
   end
   
   def show
+    # Kids that belong to parents that are showed to you
+
     @kid = Kid.find params[:id]
     @result = Geocoder.search(@kid.user.map_address).first
 

@@ -38,11 +38,15 @@ ActiveRecord::Schema.define(version: 20141007043812) do
 
   create_table "schools", force: true do |t|
     t.string  "name"
+    t.text    "website"
+    t.string  "phone"
     t.text    "street_address"
     t.string  "suburb"
     t.integer "postcode"
     t.string  "state"
     t.text    "map_address"
+    t.float   "school_latitude"
+    t.float   "school_longitude"
     t.time    "start_time"
     t.time    "finish_time"
   end
@@ -77,6 +81,8 @@ ActiveRecord::Schema.define(version: 20141007043812) do
     t.integer  "postcode"
     t.string   "state"
     t.text     "map_address"
+    t.float    "user_latitude"
+    t.float    "user_longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

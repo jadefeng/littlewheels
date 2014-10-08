@@ -8,8 +8,8 @@
 
 User.destroy_all
 # # Difficult to add users without the password digest
-user1 = User.create(:facebook => 'https://facebook.com/jadefeng', :twitter => 'https://twitter.com/fengjade', :username => "jadefeng", :first_name => "Jade", :last_name => "Feng", :email => "j.feng.1991@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW", :image => "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/1966726_10152790385673636_550276843_n.jpg?oh=926e956835b9055a22542658e0ba727f&oe=54B964B0&__gda__=1421143784_2817e7577b75a158175785c1588e8f69", :phone_number => "0404899780", :family_description => "", :car_brand => nil, :car_model => nil, :car_image => nil, :street_address => "4A O'Briens Rd", :suburb => "Hurstville", :postcode => 2220, :state => "NSW", :map_address => "4A O'Briens Rd, Hurstville, 2220")
-user2 = User.create(:username=>"phil", :first_name=>"Phil", :last_name=>"Jacob", :email=>"phil@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW",  :image=>"http://imgs.abduzeedo.com/files/articles/20-beautiful-pictures-cats/Darn_Good_Looking_Cat_by_mamazmeilor.jpg", :phone_number=>"61404899780", :facebook=>"https://www.facebook.com/jadefeng", :twitter=>"https://twitter.com/fengjade", :family_description=>"Blah blah blah family description", :car_brand=>"Mazda", :car_model=>"3", :car_image=>"http://www.mazda.com.au/assets/cars/allnewmazda3/sedan/overview/standard-features-panel/1.2.1.1-sp25.png", :street_address=>"184 Old South Headroad", :suburb=>"Bellevue Hill", :map_address => "184 Old South Headroad, Bellevue Hill, 2023, NSW", :postcode=>2023, :state=>"NSW")
+user1 = User.create(:user_latitude => -33.968143, :user_longitude => 151.09944300000006, :facebook => 'https://facebook.com/jadefeng', :twitter => 'https://twitter.com/fengjade', :username => "jadefeng", :first_name => "Jade", :last_name => "Feng", :email => "j.feng.1991@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW", :image => "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/1966726_10152790385673636_550276843_n.jpg?oh=926e956835b9055a22542658e0ba727f&oe=54B964B0&__gda__=1421143784_2817e7577b75a158175785c1588e8f69", :phone_number => "0404899780", :family_description => "", :car_brand => nil, :car_model => nil, :car_image => nil, :street_address => "4A O'Briens Rd", :suburb => "Hurstville", :postcode => 2220, :state => "NSW", :map_address => "4A O'Briens Rd, Hurstville, 2220")
+user2 = User.create(:user_latitude => -33.8882543, :user_longitude => 151.26100539999993,:username=>"phil", :first_name=>"Phil", :last_name=>"Jacob", :email=>"phil@gmail.com", :password_digest => "$2a$10$OF2VD2AMIsbzJ723xIhN7uBJcjc5ewPWOZC.SVoPnpeZJDBohGAXW",  :image=>"http://imgs.abduzeedo.com/files/articles/20-beautiful-pictures-cats/Darn_Good_Looking_Cat_by_mamazmeilor.jpg", :phone_number=>"61404899780", :facebook=>"https://www.facebook.com/jadefeng", :twitter=>"https://twitter.com/fengjade", :family_description=>"Blah blah blah family description", :car_brand=>"Mazda", :car_model=>"3", :car_image=>"http://www.mazda.com.au/assets/cars/allnewmazda3/sedan/overview/standard-features-panel/1.2.1.1-sp25.png", :street_address=>"184 Old South Headroad", :suburb=>"Bellevue Hill", :map_address => "184 Old South Headroad, Bellevue Hill, 2023, NSW", :postcode=>2023, :state=>"NSW")
 
 School.destroy_all
 
@@ -20,6 +20,8 @@ school1 = School.create(
 	:postcode => 2220,
 	:state => "NSW",
 	:map_address => "Hurstville Adventist School, 30 Wright Street, Hurstville, NSW 2220",
+	:school_latitude => -33.9635822,
+	:school_longitude => 151.10751949999997, 
 	:start_time => "9:00 AM",
 	:finish_time => "3:30 PM"
 	)
@@ -30,6 +32,8 @@ school2 = School.create(
 	:suburb => "Hurstville",
 	:postcode => 2220,
 	:state => "NSW",
+	:school_latitude => -33.962432,
+	:school_longitude => 151.11246630000005,
 	:map_address => "Hurstville Public School, Forest Road, Hurstville, NSW 2220",
 	:start_time => "9:00 AM",
 	:finish_time => "3:30 PM"

@@ -28,6 +28,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	has_many :kids
+	has_many :schools, through: :kids
 	has_many :trips
 
 	validates :username, :presence => true, :uniqueness => true, :length => {:minimum => 2, :maximum => 20}

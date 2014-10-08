@@ -23,6 +23,9 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :state
         t.text :map_address
 
+        t.float :user_latitude
+        t.float :user_longitude
+
     	t.timestamps
     end
   end

@@ -16,4 +16,5 @@
 class School < ActiveRecord::Base
 	has_many :trips
 	has_many :kids
+	has_many :users, through: :kids
 end
