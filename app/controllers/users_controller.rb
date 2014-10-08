@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @current_user.kids.each do |kid|
       @school_list << kid.school.id
     end
+    @school_list.uniq!
 
     # Users that have kids who go to your school 
     @users = []
