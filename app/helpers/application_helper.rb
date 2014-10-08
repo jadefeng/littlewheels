@@ -21,7 +21,7 @@ module ApplicationHelper
 		nav
 	end
 
-	def intellinav_short
+	def intellinav_logged_in
 		nav = ''
 		if @current_user.present?
 			nav += "<li><h4> Welcome " + @current_user.first_name + "</h4></li> "  			
@@ -30,8 +30,20 @@ module ApplicationHelper
 			nav += "<li>" + link_to('All Children', kids_path) + "</li> "
 			nav += "<li>" + link_to('All Rides', trips_path) + "</li> "
 			nav += "<li>" + link_to('About', about_path) + "</li> "
-			nav += "<li>  #{ link_to('Sign out', login_path, :method => :delete, :data => {:confirm => "Are you sure?"})  }</li> "
+			nav += "<li>  #{ link_to('Sign out', login_path, :method => :delete, :data => {:confirm => "Are you sure?"})  }</li> "			
 		end 
 		nav
 	end
+
+	def intellinav_not_logged_in
+		nav = ''
+		if @current_user.present? == false
+			nav += "<li>" + link_to('Sign Up', new_user_path) + "</li> "
+			nav += "<li>" + link_to('Login', login_path) + "</li> "
+			nav += "<li>" + link_to('About', about_path) + "</li> "
+		end 
+		nav
+	end
+
+
 end

@@ -3,12 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  	# helper_method :logged_in?, :check_login
+  	helper_method :logged_in?, :check_login
     before_action :authenticate
 
     # Routing errors
 	# def not_found
- #  		raise ActionController::RoutingError.new('Not Found')
+ 	# 	raise ActionController::RoutingError.new('Not Found')
 	# end
 
 	private 
