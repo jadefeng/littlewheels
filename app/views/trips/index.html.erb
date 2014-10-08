@@ -5,41 +5,43 @@
 
 
 	<% @trips.each do |trip| %> 
+	<% if trip.date >= Date.today %>
+		<div class="index_box">
+			<div class="index">
+			
+			<h4><strong>School: </strong> <%= link_to(trip.school.name, school_path(trip.school))  %> </h4>
+			<h4><strong>Direction: </strong> <%= trip.direction.capitalize  %></h4>
+			<h4><strong>Seats Remaining: </strong> <%= trip.seats_remaining %> </h4>
+			<h4><strong>Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %></h4>
+			<h4><strong>Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p" %></h4>
+			</div>
+			
+			<div class="index">
+			<h4><strong>Driver:</strong> <%= link_to(trip.user.first_name, user_path(trip.user))  %></h4>
+			<h4><strong>Suburb: </strong> <%= trip.user.suburb  %>, <%= trip.user.postcode  %> </h4>
+			<h4><strong>Vehicle: </strong> <%= trip.user.car_brand  %> <%= trip.user.car_model  %></h4>
+			<div class="btn btn-group-lg btn-warning" > <h4> <%= link_to "Further trip details ... ", trip_path(trip)  %> </h4> </div>
 
-	<div class="index_box">
-		<div class="index">
-		
-		<h4><strong>School: </strong> <%= link_to(trip.school.name, school_path(trip.school))  %> </h4>
-		<h4><strong>Direction: </strong> <%= trip.direction.capitalize  %></h4>
-		<h4><strong>Seats Remaining: </strong> <%= trip.seats_remaining %> </h4>
-		<h4><strong>Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %></h4>
-		<h4><strong>Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p" %></h4>
+			</div>
+
+			<div class="index">
+	    <% if trip.direction == 'pickup' %>
+		    <% origin = trip.user.map_address %>
+		    <% destination = trip.school.map_address %>
+	    <% else %>
+	    	 <%destination = trip.user.map_address %>
+		    <% origin = trip.school.map_address %>
+	    <% end %>
+
+		<iframe
+		  width="300"
+		  height="190"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ&origin=<%= origin.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= destination.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving ">
+		</iframe>
+			</div>
 		</div>
-		
-		<div class="index">
-		<h4><strong>Driver:</strong> <%= link_to(trip.user.first_name, user_path(trip.user))  %></h4>
-		<h4><strong>Suburb: </strong> <%= trip.user.suburb  %>, <%= trip.user.postcode  %> </h4>
-		<h4><strong>Vehicle: </strong> <%= trip.user.car_brand  %> <%= trip.user.car_model  %></h4>
-		<div class="btn btn-group-lg btn-warning" > <h4> <%= link_to "Further trip details ... ", trip_path(trip)  %> </h4> </div>
-
-		</div>
-
-		<div class="index">
-    <% if trip.direction == 'pickup' %>
-	    <% origin = trip.user.map_address %>
-	    <% destination = trip.school.map_address %>
-    <% else %>
-    	 <%destination = trip.user.map_address %>
-	    <% origin = trip.school.map_address %>
-    <% end %>
-
-	<iframe
-	  width="300"
-	  height="190"
-	  frameborder="0" style="border:0"
-	  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ&origin=<%= origin.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= destination.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving ">
-	</iframe>
-		</div>
-	</div>
+		<% end %>
 	<% end %>
+
 </div>

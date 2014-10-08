@@ -18,10 +18,10 @@
             </ul>
             <ul class="list-inline">
                 <li>
-                    <a href=<%= @user.facebook  %>><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    <a href=<%= @user.facebook  %>><i class="fa fa-facebook fa-fw fa-2x"></i></a>
                 </li>
                 <li>
-                    <a href=<%= @user.twitter  %>><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    <a href=<%= @user.twitter  %>><i class="fa fa-twitter fa-fw fa-2x"></i></a>
                 </li>
             </ul>	        	
 		</div>
@@ -67,6 +67,7 @@
 	<div class="show_column">
 		<h2><%= link_to "Trips", trips_path %></h2>
 		<% @user.trips.each do |trip| %>
+		<% if trip.date >= Date.today %>
 		<div class="show_box">
 			<ul>
 			<li><%= link_to(trip.school.name, trip) %></li>
@@ -80,8 +81,9 @@
 			</ul>
 		</div>
 		<% end %>
+		<% end %>
 
-	<% if @current_user.id == @user.id %>	
+	<% if @current_user.id == @user.id || @current_user.admin %>	
 		<div class="btn btn-group-lg btn-success"> 
 			<%= link_to("Add Trip", new_trip_path) %>
 		</div>

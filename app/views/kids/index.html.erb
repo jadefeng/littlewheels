@@ -9,8 +9,9 @@
 			<img src=<%= kid.image  %> >
 		</div>
 		<div class="index"> <h3> <%= link_to kid.first_name, kid  %> </h3>
-		<h4> <%= kid.school.name %> </h4> 
-		<h4> <%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old </h4>
+		<h4> <strong>School: </strong><%= link_to kid.school.name, school_path(kid.school) %> </h4> 
+		<h4> <strong>Age: </strong> <%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old </h4>
+		<h4> <strong>Parent: </strong> <%= link_to kid.user.first_name, user_path(kid.user)  %></h4>
 		</div>
 
 		<div class="index">

@@ -21,7 +21,7 @@
 
 <div class="show_column">
 	<% user = User.find @kid.user_id  %>
-		<h2><%= link_to("Parent", user_path) %>: <%= user.first_name  %> <%= user.last_name  %></h2>
+		<h2><%= link_to(user.first_name, user_path) %></h2>
 		<%= image_tag(user.image) %>
 		<h4><strong>Suburb:</strong> <%= user.suburb %>, <%= user.postcode %></h4>
 
@@ -34,10 +34,10 @@
             </ul>
             <ul class="list-inline">
                 <li>
-                    <a href=<%= user.facebook  %>><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    <a href=<%= user.facebook  %>><i class="fa fa-facebook fa-fw fa-2x"></i></a>
                 </li>
                 <li>
-                    <a href=<%= user.twitter  %>><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    <a href=<%= user.twitter  %>><i class="fa fa-twitter fa-fw fa-2x"></i></a>
                 </li>
             </ul>	        	
 		</div>
@@ -46,6 +46,8 @@
 	<div class="show_column">
 		<h2><%= link_to "Trips", trips_path %></h2>
 		<% @kid.trips.each do |trip| %>
+		<% if trip.date >= Date.today %>
+
 		<div class="show_box">
 			<ul>
 			<li><%= link_to(trip.school.name, trip) %></li>
@@ -58,6 +60,7 @@
 			<li><strong>Seats Remaining: </strong> <%= trip.seats_remaining  %></li>
 			</ul>
 		</div>
+		<% end %>
 		<% end %>
 	</div>
 
