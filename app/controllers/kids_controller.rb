@@ -1,5 +1,7 @@
 class KidsController < ApplicationController
 
+  before_action :check_login
+
   def new
     @kid = Kid.new
   end

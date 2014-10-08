@@ -42,22 +42,25 @@
 #
 
 Rails.application.routes.draw do
-  root :to => 'home#index'
-  get '/about' => 'home#about'
-  get '/contact' => 'home#contact'
+    root :to => 'home#index'
+    get '/about' => 'home#about'
+    get '/contact' => 'home#contact'
 
-  get '/users/edit' => 'users#edit', :as => :edit_user
-  resources :users, :except => [:edit]
+    get '/users/edit' => 'users#edit', :as => :edit_user
+    resources :users, :except => [:edit]
 
-  resources :kids, :schools
-  resources :trips do
-	 post 'book' => 'trips#book'  	
-   delete 'unbook/:kid_id' => 'trips#unbook', :as => :unbook
-  end
+    resources :kids, :schools
+    resources :trips do
+  	 post 'book' => 'trips#book'  	
+     delete 'unbook/:kid_id' => 'trips#unbook', :as => :unbook
+    end
 
-  get '/login' => 'session#new'
-  post 'login' => 'session#create'
-  delete 'login' => 'session#destroy'
-  
+    get '/login' => 'session#new'
+    post 'login' => 'session#create'
+    delete 'login' => 'session#destroy'
+
+    # get '/*' do
+    #   redirect to('/')
+    # end
 
 end

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :check_login
+
   def new
     @user = User.new
   end

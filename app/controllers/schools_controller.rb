@@ -1,4 +1,7 @@
 class SchoolsController < ApplicationController
+
+  before_action :check_login
+
   def new
     @school = School.new
   end

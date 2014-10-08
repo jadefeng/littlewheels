@@ -1,4 +1,7 @@
 class TripsController < ApplicationController
+
+  before_action :check_login
+  
   def new
     @trip = Trip.new
   end
