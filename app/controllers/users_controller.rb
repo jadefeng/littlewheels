@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @user = User.new user_params
     @user.username.downcase!         # Ensuring the username is not case-sensitive
     @user.map_address = @user.street_address.to_s + ', ' + @user.suburb.to_s + ', ' + @user.postcode.to_s

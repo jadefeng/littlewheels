@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
   	helper_method :logged_in?, :check_login
     before_action :authenticate
 
-    # Routing errors
-	# def not_found
- 	# 	raise ActionController::RoutingError.new('Not Found')
-	# end
 
 	private 
 	def authenticate
@@ -29,4 +25,9 @@ class ApplicationController < ActionController::Base
 	# 	authenticate.admin if logged_in?
 	# end
 	
+    # Routing errors
+	# def not_found
+ 	# 	raise ActionController::RoutingError.new('Not Found')
+	# end
+
 end
