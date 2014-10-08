@@ -59,8 +59,8 @@ Rails.application.routes.draw do
     post 'login' => 'session#create'
     delete 'login' => 'session#destroy'
 
-    # get '/*' do
-    #   redirect to('/')
-    # end
+    get '/:something' do
+      redirect to('/')
+    end
 
 end
