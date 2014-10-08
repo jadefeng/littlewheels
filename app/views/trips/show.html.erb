@@ -41,7 +41,7 @@
 		<h4> Car: <%= @trip.user.car_brand  %> <%= @trip.user.car_model  %> </h4>
 		<p> <%= image_tag(@trip.user.car_image) %> </p>
 
-		<% if @current_user.id == @trip.user_id  %>
+		<% if @current_user.id == @trip.user_id || @current_user.admin %>
 			<div class="btn btn-group-lg btn-warning" > <%= link_to('Edit Trip', edit_trip_path(@trip)) %> </div>
 			<div class="btn btn-group-lg btn-danger" > <%= link_to 'Delete', @trip, :method => :delete, :data => { :confirm => "Are you sure?" }%> </div>
 		<% end %>
@@ -62,7 +62,11 @@
 					<li> <strong>School: </strong><%= kid.school.name  %> </li>
 					<li> <strong>Suburb: </strong><%= kid.user.suburb  %></li>
 				</ul>
-				<div class="btn btn-group-lg btn-warning btn-small" > <%= link_to 'Remove Child', trip_unbook_path(@trip, kid), :method => :delete %> </div>
+				<% if @current_user.id == @trip.user_id || @current_user.id == kid.user_id || @current_user.admin %>
+					<div class="btn btn-group-lg btn-warning btn-small" > 
+						<%= link_to 'Remove Child', trip_unbook_path(@trip, kid), :method => :delete %> 
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<% end %>

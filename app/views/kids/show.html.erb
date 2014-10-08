@@ -9,12 +9,12 @@
 	<h4> <%= @kid.description  %> </h4>
 
 <!-- Edit segment -->	
-	<% if @current_user.id == @kid.user_id  %>
+	<% if @current_user.id == @kid.user_id || @current_user.admin %>
 		<div class="btn btn-group-lg btn-warning"> 
 			<%= link_to 'Edit Student', edit_kid_path(@kid) %> 
 		</div>
 		<div class="btn btn-group-lg btn-danger"> 
-			<%= link_to 'Delete', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
+			<%= link_to 'Delete Student', @kid, :method => :delete, :data => { :confirm => "Are you sure?" } if @current_user.id = @kid.user_id %> 
 		</div>
 	<% end %>
 </div>
@@ -44,11 +44,31 @@
 	</div>
 
 	<div class="show_column">
+		<h2><%= link_to "Trips", trips_path %></h2>
+		<% @kid.trips.each do |trip| %>
+		<div class="show_box">
+			<ul>
+			<li><%= link_to(trip.school.name, trip) %></li>
+			<li> <strong> Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %> </li>
+
+			<li> <strong> Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p"  %> </li>
+
+			<li> <strong> Direction: </strong> <%= trip.direction.capitalize  %> </li>
+			<li> <strong> School: </strong> <%= trip.school.name  %> </li>
+			<li><strong>Seats Remaining: </strong> <%= trip.seats_remaining  %></li>
+			</ul>
+		</div>
+		<% end %>
+	</div>
+
+    <section id="contact" class="map">	
 		<iframe
 		  width="100%" height="500" marginheight="0" marginwidth="0" frameborder="0" style="border:0"
 		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
 		    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
 		</iframe>
-	</div>
+	</section>
+
+
 
 </div>

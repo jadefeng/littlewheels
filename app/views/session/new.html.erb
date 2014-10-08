@@ -1,16 +1,12 @@
 <div class="container">
 <h1>Login</h1>
 	<%= form_tag '/login' do %>
-	<p>
-		<label for='username'>Username: </label>
-		<input type="text" id='username' name='username'>
-	</p>
-	<p>
-		<label for='password'>Password: </label>
-		<input type="password" id='password' name='password'>
-	</p>
-
+	<div class="input-group">
+ 		<input type="text" id='username' name='username' class="form-control" placeholder="Username">
+		<input type="password" id='password' name='password' class="form-control" placeholder="Password">
 		<label></label>
+	</div>
+
 		<button>Submit</button>
 	<% end %>
 </div>

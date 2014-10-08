@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20141007043812) do
     t.text     "map_address"
     t.float    "user_latitude"
     t.float    "user_longitude"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -26,10 +26,10 @@ module ApplicationHelper
 		if @current_user.present?
 			nav += "<li><h4> Welcome " + @current_user.first_name + "</h4></li> "  			
 			nav += "<li>" + link_to('My Profile', user_path(@current_user)) + "</li> "
+			nav += "<li>" + link_to('Edit Profile', edit_user_path) + "</li> "
 			nav += "<li>" + link_to('All Profiles', users_path) + "</li> "
 			nav += "<li>" + link_to('All Children', kids_path) + "</li> "
 			nav += "<li>" + link_to('All Rides', trips_path) + "</li> "
-			nav += "<li>" + link_to('About', about_path) + "</li> "
 			nav += "<li>  #{ link_to('Sign out', login_path, :method => :delete, :data => {:confirm => "Are you sure?"})  }</li> "			
 		end 
 		nav
