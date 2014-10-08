@@ -1,12 +1,12 @@
 <div class="container">
-	<h1>Avaliable Trips</h1>
+	<h1>Available Trips</h1>
 	<% @trips.each do |trip| %> 
 	<div class="index_box">
 		<div class="index">
 		
 		<h4><strong>School: </strong> <%= link_to(trip.school.name, school_path(trip.school))  %> </h4>
-		<h4><strong>Direction: </strong> <%= trip.direction  %></h4>
-		<h4><strong>Seats Remaining: </strong> <%= trip.seats_available %> CHANGE TO REMAINING </h4>
+		<h4><strong>Direction: </strong> <%= trip.direction.capitalize  %></h4>
+		<h4><strong>Seats Remaining: </strong> <%= trip.seats_remaining %> </h4>
 		<h4><strong>Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %></h4>
 		<h4><strong>Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p" %></h4>
 		</div>

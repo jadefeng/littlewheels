@@ -3,17 +3,23 @@
 	<div class="show_column">
 		
 		<h3><strong> <%= link_to(@trip.school.name, school_path(@trip.school))  %> </h3> </strong>
-		<h4><strong>Direction: </strong> <%= @trip.direction  %></h4>
+		<h4><strong>Direction: </strong> 
+			<% if @trip.direction == "pickup" %>
+				Pick-up to school
+			<% else %>
+				Drop-off from school
+			<% end %>
+			</h4>
 		<h4> <strong>Time: </strong><%= @trip.desired_start_time.strftime "%l:%M %p"  %> </h4>
 		<h4> <strong>Date: </strong><%= @trip.date.strftime "%a, %B %d, %Y"  %> </h4>
 		<br>
 	<div class="request_seat">
-	<h3>Request a seat - NEED TO CHANGE TO SEATS_REMAINING</h3>
- 	<% if @trip.seats_available > 0 %>
+	<h3>Request a seat</h3>
+ 	<% if @current_user.kids && @trip.seats_remaining > 0 %>
 		<%= form_tag trip_book_path(@trip) do   %> 
 			<%= label_tag :kids, "Add kid to trip:"  %>
 			<select name="kid_id">
-				<option disabled>Select kid</option>option>
+				<option disabled>Select kid</option>
 				<% @current_user.kids.each do |kid| %>
 				  <option value="<%= kid.id %>"><%= kid.first_name %></option>
 				<% end %> 
@@ -22,7 +28,7 @@
 			<%= submit_tag %>
 		<% end %> 
 	<% else %>
-		<h4>Sorry. There are no avaliable seats.</h4>
+		<h4>Sorry. There are no available seats.</h4>
 	<% end %>
 	</div>
 	<br>
@@ -31,7 +37,7 @@
 
 	<div class="show_column">
 		<h3> Driver: <%= link_to @trip.user.first_name, @trip.user  %></h3>
-		<h4> Seats Remaining: <%= @trip.seats_available  %> </h4>
+		<h4> Seats Remaining: <%= @trip.seats_remaining  %> </h4>
 		<h4> Car: <%= @trip.user.car_brand  %> <%= @trip.user.car_model  %> </h4>
 		<p> <%= image_tag(@trip.user.car_image) %> </p>
 

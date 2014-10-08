@@ -5,11 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    @user.username.downcase!         # Ensuring the username is not case-sensitive
     @user.map_address = @user.street_address.to_s + ', ' + @user.suburb.to_s + ', ' + @user.postcode.to_s
     if @user.save     # => true
       # here the user is valid
-      # session[:user_id] = user.id
-      redirect_to root_path   # back to the home page!
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)   # back to the home page!
     else
       # here the user is invalid
       render :new         # reloads the page with everything they saved in @user already! :O
@@ -45,6 +46,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :facebook, :twitter, :image, :password, :password_confirmation, :image, :phone_number, :family_description, :street_address, :suburb, :postcode, :state, :car_brand, :car_model, :car_image, :map_address)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :facebook, :twitter, :image, :password, :password_confirmation, :image, :phone_number, :family_description, :street_address, :suburb, :postcode, :state, :car_brand, :car_model, :car_image, :map_address)
   end
 end

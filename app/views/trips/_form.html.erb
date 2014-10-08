@@ -1,8 +1,9 @@
 <div class="form_page">
+
 	<%= form_for @trip do |f| %>
 	<div class="form_segment">
 		<%= f.label :seats_available  , "Seats Available:" %>
-		<select name="seats_available">
+		<select name="trip[seats_available]">
 		  <option value="1">1</option>
 		  <option value="2">2</option>
 		  <option value="3">3</option>
@@ -16,7 +17,7 @@
 	</div>
 	<div class="form_segment">
 		<%= f.label :direction  , "Direction:" %>
-		<select>
+		<select name="trip[direction]">
 			<option value="pickup">Pick-up to school</option>
 			<option value="dropoff">Drop-off from school</option>
 		</select>

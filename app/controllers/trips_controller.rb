@@ -3,7 +3,7 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
-  def create
+  def create    
     trip = Trip.new trip_params
     trip.user_id = @current_user.id
     trip.save   

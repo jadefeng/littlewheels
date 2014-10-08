@@ -136,6 +136,9 @@ input, label, select, submit {
 }
 
 
+.field_with_errors {
+	display: inline;
+}
 
 @media only screen and (max-width: 1100px) {
     .nav_bar_top {
