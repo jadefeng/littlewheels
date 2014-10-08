@@ -34,4 +34,10 @@ class User < ActiveRecord::Base
 	validates :username, :presence => true, :uniqueness => true, :length => {:minimum => 2, :maximum => 20}
 	validate :email, :presence => true, :uniqueness => true
 
+  	# acts_as_mappable :default_units => :kms,
+   #                 :default_formula => :sphere,
+   #                 :distance_field_name => :distance,
+   #                 :lat_column_name => :lat,
+   #                 :lng_column_name => :lng
+
 end

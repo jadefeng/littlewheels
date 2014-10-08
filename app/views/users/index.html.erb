@@ -16,6 +16,8 @@
 				<% school_list << school_name %>			
 			<% end %>
 		<h4> <strong>Schools:</strong> <%= school_list.uniq.join ", "  %> </h4>
+		<% distance =  %>
+		<h4><strong>Distance:</strong> TBD from @current_user.map_address</h4>
 		</div>
 
 		<div class="index">

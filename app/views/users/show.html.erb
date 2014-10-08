@@ -44,8 +44,10 @@
 			</div>
 		</div>
 		<% end %>
+	<% if @current_user.id == @user.id %>	
 	<div class="btn btn-group-lg btn-success"> 
 		<%= link_to("Add Kid", new_kid_path) %></div>
+	<% end %>
 	</div>
 
 	<div class="show_column">
@@ -64,8 +66,13 @@
 			</ul>
 		</div>
 		<% end %>
-	<div class="btn btn-group-lg btn-success"> 
-		<%= link_to("Add Trip", new_trip_path) %></div>
+
+	<% if @current_user.id == @user.id %>	
+		<div class="btn btn-group-lg btn-success"> 
+			<%= link_to("Add Trip", new_trip_path) %>
+		</div>
+	<% end %>
+
 	</div>
 
     <section id="contact" class="map">	

@@ -4,10 +4,9 @@ source 'https://rubygems.org'
 gem 'haml'
 gem 'bcrypt'
 gem 'geocoder'
-
-group :production, :staging do
-  gem 'rails_12factor'
-end
+gem 'rails_12factor'
+gem 'geokit'
+gem 'geokit-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
