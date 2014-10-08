@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
 
   	helper_method :logged_in?, :check_login
     before_action :authenticate
-	
+
+    # Routing errors!
+	def not_found
+  		raise ActionController::RoutingError.new('Not Found')
+	end
+
 	private 
 	def authenticate
 		@current_user = User.find_by(:id => session[:user_id])
