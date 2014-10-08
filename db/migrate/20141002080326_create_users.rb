@@ -25,6 +25,7 @@ class CreateUsers < ActiveRecord::Migration
 
         t.float :user_latitude
         t.float :user_longitude
+        t.boolean :admin
 
     	t.timestamps
     end

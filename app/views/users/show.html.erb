@@ -48,6 +48,11 @@
 	<div class="btn btn-group-lg btn-success"> 
 		<%= link_to("Add Kid", new_kid_path) %></div>
 	<% end %>
+	
+	<div class="btn btn-group-lg btn-danger"> 
+	<%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+	</div>
+	
 	</div>
 
 	<div class="show_column">
