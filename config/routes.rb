@@ -51,7 +51,8 @@ Rails.application.routes.draw do
 
   resources :kids, :schools
   resources :trips do
-	post 'book' => 'trips#book'  	
+	 post 'book' => 'trips#book'  	
+   delete 'unbook/:kid_id' => 'trips#unbook', :as => :unbook
   end
 
   get '/login' => 'session#new'

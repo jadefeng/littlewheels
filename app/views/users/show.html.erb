@@ -59,9 +59,9 @@
 
 			<li> <strong> Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p"  %> </li>
 
-			<li> <strong> Direction: </strong> <%= trip.direction  %> </li>
+			<li> <strong> Direction: </strong> <%= trip.direction.capitalize  %> </li>
 			<li> <strong> School: </strong> <%= trip.school.name  %> </li>
-			<li><strong>Seats Remaining: </strong> <%= trip.seats_available  %> CHANGE REMAINING</li>
+			<li><strong>Seats Remaining: </strong> <%= trip.seats_remaining  %></li>
 			</ul>
 		</div>
 		<% end %>

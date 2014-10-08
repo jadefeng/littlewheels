@@ -42,6 +42,13 @@ class TripsController < ApplicationController
     redirect_to trip
   end
 
+  def unbook
+    kid = Kid.find params[:kid_id]      # Find kid in the trip.kids array
+    trip = Trip.find params[:trip_id]
+    trip.kids.delete(kid)
+    redirect_to trip
+  end
+
   private
   def trip_params
     params.require(:trip).permit(:seats_available, :direction, :user_id, :school_id, :desired_start_time, :date)

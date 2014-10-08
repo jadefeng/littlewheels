@@ -62,6 +62,7 @@
 					<li> <%= kid.school.name  %> </li>
 					<li> <%= kid.user.suburb  %></li>
 				</ul>
+				<div class="btn btn-group-lg btn-warning btn-small" > <%= link_to 'Remove Child', trip_unbook_path(@trip, kid), :method => :delete %> </div>
 			</div>
 		</div>
 		<% end %>

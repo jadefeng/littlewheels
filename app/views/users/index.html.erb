@@ -7,8 +7,15 @@
 		<div class="index">
 			<img src=<%= user.image  %> >
 		</div>
-		<div class="index"> <h2> <%= link_to user.first_name, user  %> </h2>
-		<h3> <%= user.suburb %> </h3> 
+
+		<div class="index"> <h3> <%= link_to user.first_name, user  %> </h3>
+		<h4> <strong> Suburb:</strong> <%= user.suburb %> </h4> 
+			<% school_list = [] %>
+			<% user.kids.each do |kid| %>
+				<% school_name = kid.school.name %>
+				<% school_list << school_name %>			
+			<% end %>
+		<h4> <strong>Schools:</strong> <%= school_list.uniq.join ", "  %> </h4>
 		</div>
 
 		<div class="index">
