@@ -59,5 +59,4 @@ Rails.application.routes.draw do
     post 'login' => 'session#create'
     delete 'login' => 'session#destroy'
 
-
 end
