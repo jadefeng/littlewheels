@@ -14,12 +14,12 @@
 	</div>
 	<div class="form_segment">
 		<%= f.label :school, "School"  %>
-		<select name="kid[school_id]", class="form-control", prompt="Select school", required>
+		<select name="trip[school_id]", class="form-control", prompt="Select school", required>
 			<option disabled>Select school</option>
 			<% School.all.each do |school| %>
 				<option value=<%= school.id %> > <%= school.name  %> </option>
 			<% end %>
-		</select> 
+		</select>  
 	</div>
 	<div class="form_segment">
 		<%= f.label :direction  , "Direction" %>
