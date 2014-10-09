@@ -26,6 +26,11 @@
 		<%= f.label :last_name %>
 		<%= f.text_field :last_name, required: true, :class => "form-control"%>
 	</div>
+<!-- Avatar -->
+	<div class="field">
+  		<%= f.label :avatar %><br />
+  		<%= f.file_field :avatar %>
+	</div>
 	<div class="form_segment">
 		<%= f.label :email %>
 		<%= f.email_field :email, required: true, :class => "form-control" %>
