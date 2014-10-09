@@ -2,7 +2,7 @@
 
 	<div class="show_column">
 		<h2><strong><%= @user.first_name.capitalize  %> <%= @user.last_name.capitalize  %></strong></h2>
-		<img src=<%= @user.avatar.url(:square)  %> >
+		<%= image_tag @user.avatar.url(:square) %>		
 		<h4><strong>Schools: </strong> <%=  @school_list.uniq.join ", " %></h4>
 		<h4><strong>Distance: </strong> <%= (@user.distance_to([@current_user.user_latitude, @current_user.user_longitude])).round(2)   %> km away</h4>
 		<h4> <strong>Vehicle: </strong> <%= @user.car_brand  %> <%= @user.car_model %> </h4>
