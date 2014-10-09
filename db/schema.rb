@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009045544) do
+ActiveRecord::Schema.define(version: 20141009101359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 20141009045544) do
     t.string   "password_digest"
     t.text     "facebook"
     t.text     "twitter"
-    t.text     "image",              default: "https://team.org/static/images/generic_avatar_300.gif"
+    t.text     "image",               default: "https://team.org/static/images/generic_avatar_300.gif"
     t.string   "phone_number"
     t.text     "family_description"
     t.string   "car_brand"
     t.string   "car_model"
-    t.string   "car_image",          default: "http://www.huntsgamepreserve.com/sitebuildercontent/sitebuilderpictures/webassets/car-icon.gif"
+    t.string   "car_image",           default: "http://www.huntsgamepreserve.com/sitebuildercontent/sitebuilderpictures/webassets/car-icon.gif"
     t.text     "street_address"
     t.string   "suburb"
     t.integer  "postcode"
@@ -97,6 +97,10 @@ ActiveRecord::Schema.define(version: 20141009045544) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

@@ -16,10 +16,11 @@ class UsersController < ApplicationController
     @user.username.downcase!         # Ensuring the username is not case-sensitive
     @user.map_address = @user.street_address.to_s + ', ' + @user.suburb.to_s + ', ' + @user.postcode.to_s
     
+
     @result = Geocoder.search(@user.map_address).first
     @user.user_latitude = @result.latitude
     @user.user_latitude = @result.longitude
-    
+
     if @user.save     # => true
       # here the user is valid
       session[:user_id] = @user.id
@@ -76,6 +77,8 @@ class UsersController < ApplicationController
     user.user_latitude = @result.longitude
     
     user.save
+    
+    # raise params.inspect
     redirect_to user
   end
 
