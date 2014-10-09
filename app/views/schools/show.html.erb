@@ -61,7 +61,8 @@
 				<li><%= link_to kid.first_name.capitalize, kid  %></li>
 				<li><%= ((Date.today - kid.dob).to_f/365.25).round  %>-years-old</li>
 				<li><%= kid.user.suburb  %></li>
-				<li><strong>Parent: </strong><%= link_to kid.user.first_name.capitalize, user_path  %></li>
+				<li><strong>Parent: </strong><%= link_to kid.user.
+				.capitalize, user_path  %></li>
 				</ul>
 			</div>
 		</div>

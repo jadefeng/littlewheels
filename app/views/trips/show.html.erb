@@ -15,21 +15,23 @@
 		<br>
 	<div class="request_seat">
 	<h3>Request a seat</h3>
+	<div>
  	<% if @current_user.kids && @trip.seats_remaining > 0 %>
 		<%= form_tag trip_book_path(@trip) do   %> 
-			<%= label_tag :kids, "Add kid to trip:"  %>
-			<select name="kid_id">
+			<select name="kid_id", class="form-control">
 				<option disabled>Select kid</option>
 				<% @current_user.kids.each do |kid| %>
 				  <option value="<%= kid.id %>"><%= kid.first_name.capitalize %></option>
 				<% end %> 
 			</select>
+			<div> </div>
 			<label></label>
 			<%= submit_tag %>
 		<% end %> 
 	<% else %>
 		<h4>Sorry. There are no available seats.</h4>
 	<% end %>
+	</div>
 	</div>
 	<br>
 
@@ -73,6 +75,40 @@
 
 	</div>
 
+<!-- MESSAGING -->
+	<div class="messaging">	
+ 	<% if @current_user  %> 
+ 	<h2>Messages </h2>
+
+	    <% @trip.comments.each do |comment| %>
+	    <div class="comment_block">
+	        <div class="name_comment"> <h3> <%= link_to comment.user.first_name, user_path %></h3> </div>
+	        <div class="comment_text"> <h4>	<%= comment.comment_text %></h4> </div>
+
+		    <div class="trip_comment_buttons">
+				<% if @current_user.id == @trip.user_id || @current_user.id == comment.user_id || @current_user.admin %>
+		<!-- Edit Button -->
+					<!-- <div class="btn btn-group-lg btn-warning" > <%= link_to('Edit Comment', edit_trip_comment_path(@trip, comment)) %> </div> -->
+		<!-- Delete Button -->
+					<div class="btn btn-group-lg btn-danger" > <%= link_to 'Delete', trip_comment_path(@trip, comment), :method => :delete %> </div>
+
+				<% end %>
+			</div>
+			</div>
+		<% end %> 
+
+	    <%= form_for ([@trip, @trip.comments.new]) do |f|  %>
+		    <div class="input-group">
+			  <%= f.text_area :comment_text , :autofocus => true, :placeholder => "Comment", :class =>  	"form-control" %>
+		      <span class="input-group-btn">
+		      		<%= f.submit "Post!", :class => "btn btn-default btn-lg"%>
+  		      </span>
+		    </div><!-- /input-group -->
+	    <% end %>
+    <% end %>
+	</div>
+
+<!-- MAP PART -->
     <section id="contact" class="map">
     <% if @trip.direction == 'dropoff' # Dropoff at school %>
 	    <% @origin = @trip.user.map_address %>

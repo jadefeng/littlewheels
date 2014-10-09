@@ -17,6 +17,7 @@ class Trip < ActiveRecord::Base
 	has_and_belongs_to_many :kids
 	belongs_to :school
 	belongs_to :user
+	has_many :comments
 
 	def seats_remaining
 		return self.seats_available - self.kids.length

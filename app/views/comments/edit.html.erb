@@ -1,0 +1,10 @@
+<%= form_for ([@trip, @trip.comments.new]) do |f|  %>
+    
+    <div class="input-group">
+	  <%= f.text_area :comment_text , :autofocus => true, :placeholder => "Comment", :class => "form-control" %>
+      <span class="input-group-btn">
+      		<%= f.submit "Post!", :class => "btn btn-default btn-lg"%>
+      </span>
+    </div>
+
+<% end %>

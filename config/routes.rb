@@ -42,6 +42,10 @@
 #
 
 Rails.application.routes.draw do
+  get 'messages/messages'
+
+  get 'messages/index'
+
     root :to => 'home#index'
     get '/about' => 'home#about'
     get '/contact' => 'home#contact'
@@ -51,9 +55,12 @@ Rails.application.routes.draw do
 
     resources :kids, :schools
     resources :trips do
-  	 post 'book' => 'trips#book'  	
+  	 resources :comments
+
+     post 'book' => 'trips#book'  	
      delete 'unbook/:kid_id' => 'trips#unbook', :as => :unbook
     end
+
 
     get '/login' => 'session#new'
     post 'login' => 'session#create'

@@ -4,37 +4,42 @@
 
 	<%= form_for @kid do |f| %>
 	<div class="form_segment">
-		<%= f.label :first_name  , "First Name:" %>
+		<%= f.label :first_name  , "First Name" %>
 		<%= f.text_field :first_name , required: true, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
-		<%= f.label :last_name  , "Last Name:" %>
+		<%= f.label :last_name  , "Last Name" %>
 		<%= f.text_field :last_name , required: true, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
-		<%= f.label :dob  , "Date of Birth:" %>
+		<%= f.label :dob  , "Date of Birth" %>
 		<%= f.date_field :dob , required: true, :class => "form-control"  %>
 	</div>
 	<div class="form_segment">
-		<%= f.label :gender  , "Gender:" %>
+		<%= f.label :gender  , "Gender" %>
 		<select name="kid[gender]", class="form-control",  required>
 		  <option value="male">Male</option>
 		  <option value="female">Female</option>
 		</select>
 
 	<div class="form_segment">
-		<%= f.label :school, "School:"  %>
-		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true , :class => "form-control" %>
+		<%= f.label :school, "School"  %>
+		<select name="kid[school_id]", class="form-control", prompt="Select school", required>
+			<option disabled>Select school</option>
+			<% School.all.each do |school| %>
+				<option value=<%= school.id %> > <%= school.name  %> </option>
+			<% end %>
+		</select>  
 	</div>
 
 <!-- 	Commenting out description because not sure what to do with it right now -->
 <!-- 	<div class="form_segment">
-		<%= f.label :description  , "Description:" %>
+		<%= f.label :description  , "Description" %>
 		<%= f.text_field :description , :class => "form-control" %>
 	</div> -->
 
 	<div class="form_segment">
-		<%= f.label :image  , "Image:" %>
+		<%= f.label :image  , "Image" %>
 		<%= f.url_field :image,  :class => "form-control"  %>
 	</div>
 		<label></label>

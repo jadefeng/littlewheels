@@ -7,7 +7,7 @@
 #  last_name   :string(255)
 #  dob         :date
 #  gender      :string(255)
-#  image       :text
+#  image       :text             default("https://team.org/static/images/generic_avatar_300.gif")
 #  description :text
 #  user_id     :integer
 #  school_id   :integer
