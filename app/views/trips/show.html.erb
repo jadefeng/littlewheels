@@ -110,7 +110,7 @@
 	</div>
 
 <!-- MAP PART -->
-<!--     <section id="contact" class="map">
+    <section id="contact" class="map">
     <% if @trip.direction == 'dropoff' # Dropoff at school %>
 	    <% @origin = @trip.user.map_address %>
 	    <% @destination = @trip.school.map_address %>
@@ -134,7 +134,7 @@
 	  &origin=<%= @origin.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&destination=<%= @destination.gsub(' ', '+').gsub(',', '+').gsub('++', '+')  %>&mode=driving"
 	</iframe>
 	<% end %>
-	</section> -->
+	</section> 
 
 <% end %>
 </div>

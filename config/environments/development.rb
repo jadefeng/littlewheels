@@ -1,15 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 # config/environments/production.rb
-  config.paperclip_defaults = {
+    config.paperclip_defaults = {
     :storage => :s3,
+    :s3_host_name => "s3-ap-southeast-2.amazonaws.com",
     :s3_credentials => {
-      :bucket => ENV['littlewheels'],
-      :access_key_id => ENV['AKIAJ6NBAQD5K4R3JEDQ'],
-      :secret_access_key => ENV['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']
+      :bucket => 'littlewheels',
+      :access_key_id => 'AKIAJ6NBAQD5K4R3JEDQ',
+      :secret_access_key => 'hCqKVhNGDKP2js0xnlx50BzxiL7A6yUVmSXPVzLl'
 
     }
   }
+  
   
 
   # In the development environment your application's code is reloaded on

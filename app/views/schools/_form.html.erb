@@ -1,7 +1,7 @@
 <div class="form_page">
 	<div class="input-group">
 
-	<%= form_for @school do |f| %>
+	<%= form_for @current_user.schools.uniq do |f| %>
 	<div class="form_segment">
 		<%= f.label :name  , "Name" %>
 		<%= f.text_field :name, :class => "form-control"  , required: true%>
