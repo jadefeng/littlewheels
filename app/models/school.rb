@@ -17,4 +17,8 @@ class School < ActiveRecord::Base
 	has_many :trips
 	has_many :kids
 	has_many :users, through: :kids
+
+	geocoded_by :map_address, :latitude  => :school_latitude, :longitude => :school_longitude
+	after_validation :geocode
+
 end

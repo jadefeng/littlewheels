@@ -34,6 +34,9 @@ class User < ActiveRecord::Base
 	validates :username, :presence => true, :uniqueness => true, :length => {:minimum => 2, :maximum => 20}
 	validate :email, :presence => true, :uniqueness => true
 
+	geocoded_by :map_address, :latitude  => :user_latitude, :longitude => :user_longitude
+	after_validation :geocode
+
   	# acts_as_mappable :default_units => :kms,
    #                 :default_formula => :sphere,
    #                 :distance_field_name => :distance,

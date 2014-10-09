@@ -4,10 +4,10 @@
 		
 		<h3><strong> <%= link_to(@trip.school.name, school_path(@trip.school))  %> </h3> </strong>
 		<h4><strong>Direction: </strong> 
-			<% if @trip.direction == "pickup" %>
-				Pick-up to school
+			<% if @trip.direction == "Dropoff" %>
+				Drop-off at school
 			<% else %>
-				Drop-off from school
+				Pick-up from school
 			<% end %>
 			</h4>
 		<h4> <strong>Time: </strong><%= @trip.desired_start_time.strftime "%l:%M %p"  %> </h4>
@@ -21,7 +21,7 @@
 			<select name="kid_id">
 				<option disabled>Select kid</option>
 				<% @current_user.kids.each do |kid| %>
-				  <option value="<%= kid.id %>"><%= kid.first_name %></option>
+				  <option value="<%= kid.id %>"><%= kid.first_name.capitalize %></option>
 				<% end %> 
 			</select>
 			<label></label>
@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="show_column">
-		<h3> Driver: <%= link_to @trip.user.first_name, @trip.user  %></h3>
+		<h3> Driver: <%= link_to @trip.user.first_name.capitalize, @trip.user  %></h3>
 		<h4> Seats Remaining: <%= @trip.seats_remaining  %> </h4>
 		<h4> Car: <%= @trip.user.car_brand  %> <%= @trip.user.car_model  %> </h4>
 		<p> <%= image_tag(@trip.user.car_image) %> </p>
@@ -58,7 +58,7 @@
 
 			<div class="show_box_smaller">
 				<ul> 
-					<li> <strong> <%= link_to kid.first_name, kid  %> </strong> </li>
+					<li> <strong> <%= link_to kid.first_name.capitalize, kid  %> </strong> </li>
 					<li> <strong>School: </strong><%= kid.school.name  %> </li>
 					<li> <strong>Suburb: </strong><%= kid.user.suburb  %></li>
 				</ul>
@@ -74,7 +74,7 @@
 	</div>
 
     <section id="contact" class="map">
-    <% if @trip.direction == 'pickup' %>
+    <% if @trip.direction == 'dropoff' # Dropoff at school %>
 	    <% @origin = @trip.user.map_address %>
 	    <% @destination = @trip.school.map_address %>
     <% else %>

@@ -1,9 +1,10 @@
 <div class="form_page">
+	<div class="input-group">
 
 	<%= form_for @trip do |f| %>
 	<div class="form_segment">
 		<%= f.label :seats_available  , "Seats Available:" %>
-		<select name="trip[seats_available]" required>
+		<select name="trip[seats_available]" , class="form-control", required>
 		  <option value="1">1</option>
 		  <option value="2">2</option>
 		  <option value="3">3</option>
@@ -13,26 +14,27 @@
 	</div>
 	<div class="form_segment">
 		<%= f.label :school, "School Destination:"  %>
-		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :prompt => "Select school", :required => true  %>
+		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :class => "form-control", :prompt => "Select school", :class => "form-control" , :required => true %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :direction  , "Direction:" %>
-		<select name="trip[direction]" required>
-			<option value="pickup">Pick-up to school</option>
-			<option value="dropoff">Drop-off from school</option>
+		<select name="trip[direction]" required , class="form-control" >
+			<option value="dropoff">Drop-off at school</option>
+			<option value="pickup">Pick-up from school</option>
 		</select>
 	</div>
 
 	<div class="form_segment">
 		<%= f.label :desired_start_time  , "Start Time:" %>
-		<%= f.time_field :desired_start_time, required: true %>
+		<%= f.time_field :desired_start_time, required: true, :class => "form-control"  %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :date  , "Date:" %>
-		<%= f.date_field :date, required: true %>
+		<%= f.date_field :date, required: true, :class => "form-control"  %>
 	</div>
 
 		<label></label>
 		<%= f.submit %>
 	<% end %>
+</div>
 </div>

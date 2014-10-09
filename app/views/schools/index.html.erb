@@ -4,29 +4,28 @@
 		<%= link_to("New School", new_school_path) %></div>
 
 	<% @schools.each do |school| %> 
-		<div class="index_box">
 			<div class="index">	
+			<h2>Insert Image Here Later</h2>	
+			</div>
+
+			<div class="index">
 				<h3> <%= link_to school.name, school  %> </h3>
 				<h4><strong>Address: </strong><%= school.street_address  %></h4>
 				<h4><strong>Suburb: </strong><%= school.suburb %>, <%= school.postcode  %>, <%= school.state  %></h4>
 				<h4><strong>Hours: </strong><%= school.start_time.strftime "%I:%M %p"   %> - <%= school.finish_time.strftime "%I:%M %p"   %></h4>
-			</div>
-
-			<div class="index">
+				<h4><strong>Distance:</strong> <%= school.distance_to([@current_user.user_latitude, @current_user.user_longitude]).round(2)  %> km away</h4>
 				<h4><strong>Students:</strong> <%= school.kids.count  %></h4>
 				<h4><strong>Trips Available:</strong> <%= school.trips.count  %></h4>
 			</div>
 
 			<div class="index">
 				<iframe
-				  width="300"
-				  height="190"
-				  frameborder="0" style="border:0"
+			   width="285" height="285" marginheight="0" marginwidth="0" frameborder="0" style="border:0"
+
 				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
 				    &q=<%= school.map_address  %>">
 				</iframe>
 			</div>
-		</div>
 	<% end %>
 	</ul>
 

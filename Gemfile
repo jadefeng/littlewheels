@@ -3,8 +3,9 @@ source 'https://rubygems.org'
 
 gem 'haml'
 gem 'bcrypt'
-gem 'geocoder'
 gem 'rails_12factor'
+gem 'geocoder'
+
 gem 'geokit'
 gem 'geokit-rails'
 

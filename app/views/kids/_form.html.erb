@@ -1,42 +1,45 @@
 
 	<div class="form_page">
+		<div class="input-group">
+
 	<%= form_for @kid do |f| %>
 	<div class="form_segment">
 		<%= f.label :first_name  , "First Name:" %>
-		<%= f.text_field :first_name , required: true%>
+		<%= f.text_field :first_name , required: true, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :last_name  , "Last Name:" %>
-		<%= f.text_field :last_name , required: true%>
+		<%= f.text_field :last_name , required: true, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :dob  , "Date of Birth:" %>
-		<%= f.date_field :dob , required: true %>
+		<%= f.date_field :dob , required: true, :class => "form-control"  %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :gender  , "Gender:" %>
-		<select name="kid[gender]" required>
+		<select name="kid[gender]", class="form-control",  required>
 		  <option value="male">Male</option>
 		  <option value="female">Female</option>
 		</select>
 
 	<div class="form_segment">
 		<%= f.label :school, "School:"  %>
-		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true %>
+		<%= f.select :school_id, School.all.map { |school| [school.name, school.id] }, :include_blank => true, :prompt => "Select school" , required: true , :class => "form-control" %>
 	</div>
 
 <!-- 	Commenting out description because not sure what to do with it right now -->
 <!-- 	<div class="form_segment">
 		<%= f.label :description  , "Description:" %>
-		<%= f.text_field :description %>
+		<%= f.text_field :description , :class => "form-control" %>
 	</div> -->
 
 	<div class="form_segment">
 		<%= f.label :image  , "Image:" %>
-		<%= f.url_field :image, required: true %>
+		<%= f.url_field :image, required: true, :class => "form-control"  %>
 	</div>
 		<label></label>
 		<%= f.submit %>
 	<% end %>
 
+	</div>
 	</div>

@@ -7,86 +7,88 @@
 <% end %>
 
 <div class="form_page">
+	<div class="input-group">
+
 	<%=  form_for @user do |f|  %>
 	<div class="form_segment">
 		<%= f.label :username %>
-		<%= f.text_field :username, :autofocus => true, required: true %>
+		<%= f.text_field :username, :autofocus => true, required: true, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :first_name %>
-		<%= f.text_field :first_name, required: true%>
+		<%= f.text_field :first_name, required: true , :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :last_name %>
-		<%= f.text_field :last_name, required: true%>
+		<%= f.text_field :last_name, required: true , :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :email %>
-		<%= f.email_field :email, required: true %>
+		<%= f.email_field :email, required: true , :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :password %>
-		<%= f.password_field :password, required: true %>
+		<%= f.password_field :password, required: true , :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation, required: true %>
+		<%= f.password_field :password_confirmation, required: true, :class => "form-control" %>
 	</div>
 
 
 
 	<div class="form_segment">
 		<%= f.label :street_address %>
-		<%= f.text_field :street_address, required: true %>
+		<%= f.text_field :street_address, required: true , :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :suburb %>
-		<%= f.text_field :suburb, required: true %>
+		<%= f.text_field :suburb, required: true , :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :postcode %>
-		<%= f.text_field :postcode, required: true %>
+		<%= f.text_field :postcode, required: true, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :state %>
-		<%= f.text_field :state, required: true %>
+		<%= f.text_field :state, required: true, :class => "form-control" %>
 	</div>
 
 
 	<div class="form_segment">
 		<%= f.label :image %>
-		<%= f.url_field :image %>
+		<%= f.url_field :image, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :phone_number %>
-		<%= f.text_field :phone_number %>
+		<%= f.text_field :phone_number, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :facebook %>
-		<%= f.url_field :facebook%>
+		<%= f.url_field :facebook, :class => "form-control"%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :twitter %>
-		<%= f.url_field :twitter%>
+		<%= f.url_field :twitter, :class => "form-control"%>
 	</div>
 
 	<!-- <div class="form_segment">
 		<%= f.label :family_description %>
-		<%= f.text_field :family_description %>
+		<%= f.text_field :family_description , :class => "form-control"%>
 	</div> -->
 	
 	<div class="form_segment">
 		<%= f.label :car_brand %>
-		<%= f.text_field :car_brand %>
+		<%= f.text_field :car_brand, :class => "form-control" %>
 	</div>
 	
 	<div class="form_segment">
 		<%= f.label :car_model %>
-		<%= f.text_field :car_model %>
+		<%= f.text_field :car_model, :class => "form-control" %>
 	</div>
 	<div class="form_segment">
 		<%= f.label :car_image %>
-		<%= f.url_field :car_image %>
+		<%= f.url_field :car_image , :class => "form-control"%>
 	</div>
 
 
@@ -95,4 +97,5 @@
 		<%= f.submit %>
 	</div>
 	<% end %>
+</div>
 </div>

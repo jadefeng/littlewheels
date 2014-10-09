@@ -6,7 +6,8 @@ body {
 .container {
 	max-width: 960px;
 	margin: auto;
-	padding-top: 15px
+	padding-top: 15px;
+	position: relative;
 }
 
 .header {
@@ -70,43 +71,51 @@ nav li {
 	z-index: 100000;
 
 }
-input, label, select, submit {
+input, label, select {
 	font-size: 1em;
 	width: 180px;
 	display: inline-block;
 	text-align: left;
 }
 
-.index_box {
-	width: 100%;
-	height: 200px;
-	box-shadow: 5px 5px gray;
-	background-color: #FFE168;
-	color: black;
-	padding: 5px;
-	margin-bottom: 10px;
-	overflow: hidden;
+.home_page_login input {
+	font-size: 105%;
 }
 
-.index_box img {
-	margin-left: 20px;
-	border-radius: 100%;
-}
 
 .index {
+	width: 305px;
+	height: 300px;
+
+	background-color: #FFE168;
+	color: black;
+	margin-right: 0;
+	margin-left: 0;
+	margin-top: 0;
+	margin-bottom: 5px;
+	padding: 5px;
+	box-shadow: 5px 5px gray;
+
 	display: inline-table;
-	width: 300px;
-	height: 100%;
+
 	vertical-align: top;
 	overflow: hidden;
 }
 
 .index img {
+	margin: 0 auto;
+	vertical-align: top;
+	height: 100%;
+	width: 100%;
+	border-radius: 100%;
+}
+
+/*.index img {
 	height: 100%;
 	width: auto;
 	text-align: right;
 }
-
+*/
 .show_column {
 	width: 300px;
 	min-height: 400px;
@@ -152,9 +161,9 @@ input, label, select, submit {
 
 .btn-index {
 	position: absolute;
-	right: 15% ;
-	top: 130px;
-	width: 130px;
+	right: 13px ;
+	top: 25px;
+	width: 150px;
 	font-size: 1.5em;
 }
 

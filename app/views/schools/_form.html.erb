@@ -1,34 +1,37 @@
 <div class="form_page">
+	<div class="input-group">
+
 	<%= form_for @school do |f| %>
 	<div class="form_segment">
 		<%= f.label :name  , "Name:" %>
-		<%= f.text_field :name , required: true%>
+		<%= f.text_field :name, :class => "form-control"  , required: true%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :street_address  , "Street address:" %>
-		<%= f.text_field :street_address , required: true%>
+		<%= f.text_field :street_address , :class => "form-control" , required: true%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :suburb  , "Suburb:" %>
-		<%= f.text_field :suburb , required: true%>
+		<%= f.text_field :suburb , :class => "form-control" , required: true%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :postcode  , "Post code:" %>
-		<%= f.text_field :postcode , required: true%>
+		<%= f.text_field :postcode , :class => "form-control" , required: true%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :state  , "State:" %>
-		<%= f.text_field :state , required: true%>
+		<%= f.text_field :state , :class => "form-control" , required: true%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :state_time  , "Start time:" %>
-		<%= f.time_field :start_time , required: true%>
+		<%= f.time_field :start_time , :class => "form-control" , required: true%>
 	</div>
 	<div class="form_segment">
 		<%= f.label :finish_time  , "Finish time:" %>
-		<%= f.time_field :finish_time , required: true%>
+		<%= f.time_field :finish_time , :class => "form-control" , required: true%>
 	</div>
 		<label></label>
 		<%= f.submit %>
 	<% end %>
+</div>
 </div>

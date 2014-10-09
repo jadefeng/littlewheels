@@ -2,22 +2,20 @@
 	<h1>Other parents in your area!</h1>
 
 		<% @users.uniq.each do |user| %> 
-		<div class="index_box">
 
 			<div class="index">
 				<img src=<%= user.image  %> >
 			</div>
 
-			<div class="index"> <h3> <%= link_to user.first_name, user  %> </h3>
-			<h4> <strong> Suburb:</strong> <%= user.suburb %> </h4> 
+			<div class="index"> <h3> <%= link_to user.first_name.capitalize, user  %> </h3>
+			<h4> <strong> Suburb:</strong> <%= user.suburb.capitalize %> </h4> 
 				<% school_list = [] %>
 				<% user.kids.each do |kid| %>
 					<% school_name = kid.school.name %>
 					<% school_list << school_name %>			
 				<% end %>
 			<h4> <strong>Schools:</strong> <%= school_list.uniq.join ", "  %> </h4>
-			<% distance =  %>
-			<h4><strong>Distance:</strong> TBD</h4>
+			<h4><strong>Distance:</strong> <%= user.distance_to([@current_user.user_latitude, @current_user.user_longitude]).round(2)  %> km away</h4>
 			</div>
 
 
@@ -25,15 +23,13 @@
 
 			<% @result = Geocoder.search(user.map_address).first %>
 			<iframe
-			  width="300"
-			  height="190"
+			   width="285" height="285" marginheight="0" marginwidth="0" frameborder="0" style="border:0"
 			  frameborder="0" style="border:0"
 			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyByeW3PQr7VCnExkxH9pas6C2EfAUDdDsQ
 			    &q=<%= @result.latitude %>,<%= @result.longitude  %>">
 			</iframe>
 
 			</div>	
-		</div>
 
 	<% end %>
 
