@@ -10,6 +10,13 @@
 		<%= f.label :image  , "School logo" %>
 		<%= f.url_field :image , :class => "form-control" %>
 	</div>
+<!-- Logo -->
+	<div class="form_segment">
+	<div class="field">
+  		<%= f.label :logo %><br />
+  		<%= f.file_field :logo %>
+	</div>
+	</div>	
 	<div class="form_segment">
 		<%= f.label :street_address  , "Street address" %>
 		<%= f.text_field :street_address , :class => "form-control" , required: true%>

@@ -32,16 +32,18 @@
 		</select>  
 	</div>
 
-<!-- 	Commenting out description because not sure what to do with it right now -->
-<!-- 	<div class="form_segment">
-		<%= f.label :description  , "Description" %>
-		<%= f.text_field :description , :class => "form-control" %>
-	</div> -->
-
 	<div class="form_segment">
 		<%= f.label :image  , "Image" %>
 		<%= f.url_field :image,  :class => "form-control"  %>
 	</div>
+
+<!-- Avatar -->
+	<div class="form_segment">
+	<div class="field">
+  		<%= f.label :avatar %><br />
+  		<%= f.file_field :avatar %>
+	</div>
+	</div>	
 		<label></label>
 		<%= f.submit %>
 	<% end %>

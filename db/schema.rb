@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009101359) do
+ActiveRecord::Schema.define(version: 20141009214806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,16 @@ ActiveRecord::Schema.define(version: 20141009101359) do
     t.string   "last_name"
     t.date     "dob"
     t.string   "gender"
-    t.text     "image",       default: "https://team.org/static/images/generic_avatar_300.gif"
+    t.text     "image",               default: "https://team.org/static/images/generic_avatar_300.gif"
     t.text     "description"
     t.integer  "user_id"
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "kids_trips", force: true do |t|
@@ -47,19 +51,23 @@ ActiveRecord::Schema.define(version: 20141009101359) do
   end
 
   create_table "schools", force: true do |t|
-    t.string  "name"
-    t.text    "website"
-    t.string  "phone"
-    t.text    "image",            default: "http://cdns2.freepik.com/free-photo/school_318-23393.jpg"
-    t.text    "street_address"
-    t.string  "suburb"
-    t.integer "postcode"
-    t.string  "state"
-    t.text    "map_address"
-    t.float   "school_latitude"
-    t.float   "school_longitude"
-    t.time    "start_time"
-    t.time    "finish_time"
+    t.string   "name"
+    t.text     "website"
+    t.string   "phone"
+    t.text     "image",             default: "http://cdns2.freepik.com/free-photo/school_318-23393.jpg"
+    t.text     "street_address"
+    t.string   "suburb"
+    t.integer  "postcode"
+    t.string   "state"
+    t.text     "map_address"
+    t.float    "school_latitude"
+    t.float    "school_longitude"
+    t.time     "start_time"
+    t.time     "finish_time"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "trips", force: true do |t|
@@ -81,12 +89,12 @@ ActiveRecord::Schema.define(version: 20141009101359) do
     t.string   "password_digest"
     t.text     "facebook"
     t.text     "twitter"
-    t.text     "image",               default: "https://team.org/static/images/generic_avatar_300.gif"
+    t.text     "image",                   default: "https://team.org/static/images/generic_avatar_300.gif"
     t.string   "phone_number"
     t.text     "family_description"
     t.string   "car_brand"
     t.string   "car_model"
-    t.string   "car_image",           default: "http://www.huntsgamepreserve.com/sitebuildercontent/sitebuilderpictures/webassets/car-icon.gif"
+    t.string   "car_image",               default: "http://www.huntsgamepreserve.com/sitebuildercontent/sitebuilderpictures/webassets/car-icon.gif"
     t.text     "street_address"
     t.string   "suburb"
     t.integer  "postcode"
@@ -101,6 +109,10 @@ ActiveRecord::Schema.define(version: 20141009101359) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "car_avatar_file_name"
+    t.string   "car_avatar_content_type"
+    t.integer  "car_avatar_file_size"
+    t.datetime "car_avatar_updated_at"
   end
 
 end

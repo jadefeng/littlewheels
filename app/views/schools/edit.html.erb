@@ -1,4 +1,8 @@
 <div class="container">
+<% if @current_user %>
+
 	<h1>Edit school details</h1>
 	<%= render :partial => 'form' %> 
+
+<% end %>
 </div>

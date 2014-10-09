@@ -76,11 +76,6 @@
 		<%= f.label :twitter %>
 		<%= f.url_field :twitter, :class => "form-control"%>
 	</div>
-
-	<!-- <div class="form_segment">
-		<%= f.label :family_description %>
-		<%= f.text_field :family_description , :class => "form-control"%>
-	</div> -->
 	
 	<div class="form_segment">
 		<%= f.label :car_brand %>
@@ -95,7 +90,14 @@
 		<%= f.label :car_image %>
 		<%= f.url_field :car_image , :class => "form-control"%>
 	</div>
-
+	
+<!-- Car Avatar -->
+	<div class="form_segment">
+	<div class="field">
+  		<%= f.label :car_avatar %><br />
+  		<%= f.file_field :car_avatar %>
+	</div>
+	</div>
 
 	<div class="form_segment">
 		<label> </label>
