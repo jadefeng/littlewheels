@@ -4,6 +4,7 @@ class CreateSchools < ActiveRecord::Migration
     	t.string :name
         t.text :website
         t.string :phone
+        t.text :image, :default => 'http://cdns2.freepik.com/free-photo/school_318-23393.jpg'
 
     	t.text :street_address  	# Address
     	t.string :suburb		# Address

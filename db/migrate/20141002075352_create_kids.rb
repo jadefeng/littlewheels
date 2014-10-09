@@ -7,7 +7,7 @@ class CreateKids < ActiveRecord::Migration
     	t.date :dob 
         
         t.string :gender
-    	t.text :image, :default => 'XXX.jpg'
+    	t.text :image, :default => 'https://team.org/static/images/generic_avatar_300.gif'
     	t.text :description
         
         t.integer :user_id
