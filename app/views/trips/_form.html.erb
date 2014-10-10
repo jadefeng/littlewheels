@@ -16,7 +16,7 @@
 		<%= f.label :school, "School"  %>
 		<select name="trip[school_id]", class="form-control", prompt="Select school", required>
 			<option disabled>Select school</option>
-			<% School.all.each do |school| %>
+			<% @current_user.schools.all.each do |school| %>
 				<option value=<%= school.id %> > <%= school.name  %> </option>
 			<% end %>
 		</select>  
