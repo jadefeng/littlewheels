@@ -6,8 +6,8 @@ Rails.application.configure do
     :s3_host_name => "s3-ap-southeast-2.amazonaws.com",
     :s3_credentials => {
       :bucket => 'littlewheels',
-      :access_key_id => 'AKIAJ6NBAQD5K4R3JEDQ',
-      :secret_access_key => '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'
+      :access_key_id => 'AKIAIAHGW5JAZGWKPJYA',
+      :secret_access_key => '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'
 
     }
   }

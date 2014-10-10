@@ -69,16 +69,17 @@ class UsersController < ApplicationController
 
   def update
     user = @current_user
-    user.map_address = params[:street_address].to_s + ', ' + params[:suburb].to_s + ', ' + params[:postcode].to_s
-    @result = Geocoder.search(user.map_address).first
-    user.user_latitude = @result.latitude
-    user.user_latitude = @result.longitude
-    user.save
-    
-    user.update user_params
-    
-    
     # raise params.inspect
+
+    user.update user_params
+    # user.map_address = user.street_address.to_s + ', ' + user.suburb.to_s + ', ' + user.postcode.to_s
+
+    # @result = Geocoder.search(user.map_address).first
+    # user.user_latitude = @result.latitude
+    # user.user_latitude = @result.longitude
+    
+    # user.save
+
     redirect_to user
   end
 

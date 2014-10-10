@@ -2,20 +2,24 @@
 #
 # Table name: schools
 #
-#  id               :integer          not null, primary key
-#  name             :string(255)
-#  website          :text
-#  phone            :string(255)
-#  image            :text             default("http://cdns2.freepik.com/free-photo/school_318-23393.jpg")
-#  street_address   :text
-#  suburb           :string(255)
-#  postcode         :integer
-#  state            :string(255)
-#  map_address      :text
-#  school_latitude  :float
-#  school_longitude :float
-#  start_time       :time
-#  finish_time      :time
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  website           :text
+#  phone             :string(255)
+#  image             :text             default("http://cdns2.freepik.com/free-photo/school_318-23393.jpg")
+#  street_address    :text
+#  suburb            :string(255)
+#  postcode          :integer
+#  state             :string(255)
+#  map_address       :text
+#  school_latitude   :float
+#  school_longitude  :float
+#  start_time        :time
+#  finish_time       :time
+#  logo_file_name    :string(255)
+#  logo_content_type :string(255)
+#  logo_file_size    :integer
+#  logo_updated_at   :datetime
 #
 
 class School < ActiveRecord::Base

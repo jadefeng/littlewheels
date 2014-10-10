@@ -5,7 +5,8 @@
 
 		<h2><strong><%= @user.first_name.capitalize  %> <%= @user.last_name.capitalize  %></strong></h2>
 
-		<%= image_tag @user.avatar.url %>		
+		<%= image_tag @user.avatar.url %>
+				
 		<h4><strong>Schools: </strong> <%=  @school_list.uniq.join ", " %></h4>
 		<h4><strong>Distance: </strong> <%= (@user.distance_to([@current_user.user_latitude, @current_user.user_longitude])).round(2)   %> km away</h4>
 		<h4> <strong>Vehicle: </strong> <%= @user.car_brand  %> <%= @user.car_model %> </h4>
