@@ -60,6 +60,61 @@ school2 = School.create(
 	:finish_time => "3:30 PM"
 	)
 
+school3 = School.create(
+	:name => "Beverley Hills Primary School", 
+	:street_address => "King Georges Rd", :suburb => "Beverley Hills ", :postcode => 2209, 
+	:state => "NSW", :map_address => "Beverley Hills Primary School, King Georges Rd, Beverley Hills", 
+	:school_latitude => -33.9475636, :school_longitude => 151.0791325, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
+
+school4 = School.create(
+	:name => "Kingsgrove Primary School", 
+	:street_address => "Kingsgrove Rd", :suburb => "Kingsgrove", :postcode => 2208, 
+	:state => "NSW", :map_address => "Kingsgrove Primary School, Kingsgrove Rd, Kingsgrove", 
+	:school_latitude => -33.93737, :school_longitude => 151.110155, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
+
+school5 = School.create(
+	:name => "St Ives Preparatory - Sydney Grammar School", 
+	:street_address => "11 Ayres Rd", :suburb => "St Ives", :postcode => 2075, 
+	:state => "NSW", :map_address => "11 Ayres Rd, St Ives NSW 2075, Australia", 
+	:school_latitude => -33.718463, :school_longitude => 151.170581, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
+
+school6 = School.create(
+	:name => "St. Catherine Labouré Primary School", 
+	:street_address => "123 Gymea Bay Rd", :suburb => "Gymea", :postcode => 2227, 
+	:state => "NSW", :map_address => "St. Catherine Labouré Primary School, 123 Gymea Bay Rd, Gymea", 
+	:school_latitude => -34.037022, :school_longitude => 151.083992, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
+
+school7 = School.create(
+	:name => "Oakhill Drive Public School", 
+	:street_address => "Oakhill Dr", :suburb => "Castle Hill", :postcode => 2154, 
+	:state => "NSW", :map_address => "Oakhill Drive Public School, Oakhill Dr, Castle Hill NSW 2154, Australia", 
+	:school_latitude => -33.721143, :school_longitude => 151.02304, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
+
+school9 = School.create(
+	:name => "St Bernard's Catholic Primary School", 
+	:street_address => "Ramsgate St", :suburb => "Botany", :postcode => 2019, 
+	:state => "NSW", :map_address => "St Bernard's Catholic Primary School, Ramsgate St, Botany NSW 2019, Australia", 
+	:school_latitude => -33.945447, :school_longitude => 151.20012, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
+
+school10 = School.create(
+	:name => "Homebush West Public School", 
+	:street_address => "Exeter Rd", :suburb => "Homebush West", :postcode => 2140, 
+	:state => "NSW", :map_address => "Homebush West Public School, Exeter Rd, Homebush West, 2140, Australia", 
+	:school_latitude => -33.866438, :school_longitude => 151.066637, 
+	:start_time => "2000-01-01 09:00:00", 
+	:finish_time => "2000-01-01 15:00:00")
 
 Kid.destroy_all
  
@@ -72,8 +127,8 @@ Kid.create(:image => 'http://i.factmonster.com/images/australian-student.jpg', :
 
 Trip.destroy_all
 
-Trip.create(:school_id => school1.id, :direction => 'pickup', :user_id => user1.id, :seats_available => 2, :desired_start_time => "7:30AM", :date => "3 October 2014" )
-Trip.create(:school_id => school1.id, :direction => 'pickup', :user_id => user1.id, :seats_available => 3, :desired_start_time => "7:30AM", :date => "3 October 2014" )
-Trip.create(:school_id => school2.id, :direction => 'dropoff', :user_id => user1.id, :seats_available => 1, :desired_start_time => "7:30AM", :date => "3 October 2014" )
-Trip.create(:school_id => school2.id, :direction => 'dropoff', :user_id => user2.id, :seats_available => 3, :desired_start_time => "8:00AM", :date => "3 October 2014" )
-Trip.create(:school_id => school1.id, :direction => 'dropoff', :user_id => user2.id, :seats_available => 2, :desired_start_time => "8:00AM", :date => "3 October 2014" )
+Trip.create(:school_id => school1.id, :direction => 'pickup', :user_id => user1.id, :seats_available => 2, :desired_start_time => "7:30AM", :date => "11 October 2014" )
+Trip.create(:school_id => school1.id, :direction => 'pickup', :user_id => user1.id, :seats_available => 3, :desired_start_time => "7:30AM", :date => "20 October 2014" )
+Trip.create(:school_id => school2.id, :direction => 'dropoff', :user_id => user1.id, :seats_available => 1, :desired_start_time => "7:30AM", :date => "12 October 2014" )
+Trip.create(:school_id => school2.id, :direction => 'dropoff', :user_id => user2.id, :seats_available => 3, :desired_start_time => "8:00AM", :date => "13 October 2014" )
+Trip.create(:school_id => school3.id, :direction => 'dropoff', :user_id => user2.id, :seats_available => 2, :desired_start_time => "8:00AM", :date => "25 October 2014" )

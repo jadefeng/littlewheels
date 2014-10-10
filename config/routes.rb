@@ -25,7 +25,7 @@
 #  new_school GET    /schools/new(.:format)      schools#new
 # edit_school GET    /schools/:id/edit(.:format) schools#edit
 #      school GET    /schools/:id(.:format)      schools#show
-#             PATCH  /schools/:id(.:format)      schools#update
+#             PATCH  /schools/:id(.: format)      schools#update
 #             PUT    /schools/:id(.:format)      schools#update
 #             DELETE /schools/:id(.:format)      schools#destroy
 #       trips GET    /trips(.:format)            trips#index

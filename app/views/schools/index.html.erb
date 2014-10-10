@@ -20,8 +20,15 @@
 				<h4><strong>Suburb: </strong><%= school.suburb %>, <%= school.postcode  %>, <%= school.state  %></h4>
 				<h4><strong>Hours: </strong><%= school.start_time.strftime "%I:%M %p"   %> - <%= school.finish_time.strftime "%I:%M %p"   %></h4>
 				<h4><strong>Distance:</strong> <%= school.distance_to([@current_user.user_latitude, @current_user.user_longitude]).round(2)  %> km away</h4>
-				<h4><strong>Students:</strong> <%= school.kids.count  %></h4>
-				<h4><strong>Trips Available:</strong> <%= school.trips.count  %></h4>
+				<h4><strong>Students:</strong> <%= school.kids.count  %> students</h4>
+				<h4><strong>Active Trips:</strong> 
+					<% active_trips = [] %>
+					<% school.trips.each do |trip|   %>
+						<% if trip.date >= Date.today  %>
+							<% active_trips << trip %>
+						<% end %>
+					<% end %>
+				<%= active_trips.count  %> available </h4>
 			</div>
 
 			<div class="index">
