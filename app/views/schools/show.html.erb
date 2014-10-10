@@ -51,7 +51,8 @@
 		<% if trip.date > Date.today %>
 		<div class="show_box">
 			<ul>
-			<li><strong>Driver: </strong><%= link_to(trip.user.first_name.capitalize, user_path) %>, <%= trip.user.suburb  %></li>
+
+			<li><strong>Driver: </strong><%= link_to(trip.user.first_name.capitalize, user_path(trip.user)) %>, <%= trip.user.suburb  %></li>
 			<li> <strong> Date: </strong> <%= trip.date.strftime "%a, %B %d, %Y"  %> </li>
 
 			<li> <strong> Time: </strong> <%= trip.desired_start_time.strftime "%l:%M %p"  %> </li>
