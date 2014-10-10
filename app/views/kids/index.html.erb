@@ -5,7 +5,13 @@
 	<% @kids.each do |kid| %> 
 
 		<div class="index">
-			<img src=<%= kid.image  %> >
+		
+      	<% if kid.avatar.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag kid.image %>
+        <% else %>
+             <%= image_tag kid.avatar.url %> 
+        <% end %>
+
 		</div>
 		<div class="index"> <h3> <%= link_to kid.first_name.capitalize, kid  %> </h3>
 		<h4> <strong>School: </strong><%= link_to kid.school.name, school_path(kid.school) %> </h4> 

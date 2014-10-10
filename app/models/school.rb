@@ -32,11 +32,7 @@ class School < ActiveRecord::Base
 
 ### UPLOADING IMAGES
   # This method associates the attribute ":avatar" with a file attachment
-  has_attached_file :logo, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }
+  has_attached_file :logo
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/

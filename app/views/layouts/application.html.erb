@@ -20,7 +20,13 @@
     <div class="nav_bar_top">
     <% if @current_user  %>
     <div class="icon">
-        <a href='/' > <img class="profile_icon" src=<%= @current_user.image %>  > </a>
+        <a href='/' > <img class="profile_icon" src=
+        <% if @current_user.avatar.url == "/avatars/original/missing.png"  %>
+            <%= @current_user.image %>
+        <% else %>
+             <%= @current_user.avatar.url %> 
+        <% end %> > 
+        </a>
     </div>
 
      <div class="container">

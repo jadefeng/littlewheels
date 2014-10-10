@@ -6,7 +6,12 @@
 		<h2>
 			<%= @school.name  %>
 		</h2>
-		<%= image_tag(@school.image) %>
+      	<% if @school.logo.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag @school.image %>
+        <% else %>
+             <%= image_tag @school.logo.url %> 
+        <% end %>		
+
 		<h4>
 			<strong>Address:</strong> <%= @school.street_address  %>
 		</h4>
@@ -33,7 +38,7 @@
 	</div>
 
 	<div class="show_column">
-	<h2>Trips</h2>
+	<h2><%= link_to "Trips", trips_path %></h2>
 		<% @school.trips.each do |trip|  %>
 		<% if trip.date > Date.today %>
 		<div class="show_box">
@@ -53,11 +58,17 @@
 
 
 	<div class="show_column">
-	<h2>Students</h2>
+	<h2><%= link_to "Students", kids_path %></h2>
 	<% @school.kids.each do |kid|  %>
 		<div class="show_box">
 			<div class="show_box_smaller">
-				<%= image_tag(kid.image) %>
+
+		      	<% if kid.avatar.url.chars.last(11).join == "missing.png"  %>
+		            <%= image_tag kid.image %>
+		        <% else %>
+		             <%= image_tag kid.avatar.url %> 
+		        <% end %>		
+		        		
 			</div>
 			<div class="show_box_smaller">
 				<ul>

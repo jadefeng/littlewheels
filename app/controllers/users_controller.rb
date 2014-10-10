@@ -72,13 +72,13 @@ class UsersController < ApplicationController
     # raise params.inspect
 
     user.update user_params
-    # user.map_address = user.street_address.to_s + ', ' + user.suburb.to_s + ', ' + user.postcode.to_s
+    user.map_address = user.street_address.to_s + ', ' + user.suburb.to_s + ', ' + user.postcode.to_s
 
-    # @result = Geocoder.search(user.map_address).first
-    # user.user_latitude = @result.latitude
-    # user.user_latitude = @result.longitude
+    @result = Geocoder.search(user.map_address).first
+    user.user_latitude = @result.latitude
+    user.user_latitude = @result.longitude
     
-    # user.save
+    user.save
 
     redirect_to user
   end

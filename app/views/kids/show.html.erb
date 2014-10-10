@@ -3,7 +3,13 @@
 
 <div class="show_column">
 	<h1> <%= @kid.first_name.capitalize  %></h1>
-	<img src='<%= @kid.image  %>' >
+	
+      	<% if @kid.avatar.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag @kid.image %>
+        <% else %>
+             <%= image_tag @kid.avatar.url %> 
+        <% end %>
+	
 	<h4> <strong>Gender: </strong><%= @kid.gender.capitalize  %> </h4>
 	<h4> <strong>Age: </strong><%= ((Date.today - @kid.dob).to_f/365.25).round  %>-years-old </h4>
 	<h4> <strong>School: </strong><% @school = (School.find @kid.school_id)  %> <%= link_to(@school.name, @school)  %></h4>
@@ -23,7 +29,13 @@
 <div class="show_column">
 	<% user = User.find @kid.user_id  %>
 		<h2><%= link_to(user.first_name.capitalize, user_path) %></h2>
-		<%= image_tag(user.image) %>
+
+      	<% if user.avatar.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag user.image %>
+        <% else %>
+             <%= image_tag user.avatar.url %> 
+        <% end %>
+		
 		<h4><strong>Suburb:</strong> <%= user.suburb %>, <%= user.postcode %></h4>
 		<h4><strong>Distance:</strong> <%= (user.distance_to([@current_user.user_latitude, @current_user.user_longitude])).round(2)   %> km away</h4>
 

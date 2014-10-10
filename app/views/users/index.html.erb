@@ -4,7 +4,14 @@
 		<% @users.uniq.each do |user| %> 
 
 			<div class="index">
-				<img src=<%= user.image  %> >
+ 
+      	<% if user.avatar.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag user.image %>
+        <% else %>
+             <%= image_tag user.avatar.url %> 
+        <% end %>
+
+
 			</div>
 
 			<div class="index"> <h3> <%= link_to user.first_name.capitalize, user  %> </h3>

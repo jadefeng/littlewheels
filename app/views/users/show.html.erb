@@ -5,13 +5,23 @@
 
 		<h2><strong><%= @user.first_name.capitalize  %> <%= @user.last_name.capitalize  %></strong></h2>
 
-		<%= image_tag @user.avatar.url %>
-				
+
+        <% if @user.avatar.url.split(//).last(11).join == "missing.png"  %>
+            <%= image_tag @user.image %>
+        <% else %>
+             <%= image_tag @user.avatar.url %> 
+        <% end %>
+
+
 		<h4><strong>Schools: </strong> <%=  @school_list.uniq.join ", " %></h4>
 		<h4><strong>Distance: </strong> <%= (@user.distance_to([@current_user.user_latitude, @current_user.user_longitude])).round(2)   %> km away</h4>
 		<h4> <strong>Vehicle: </strong> <%= @user.car_brand  %> <%= @user.car_model %> </h4>
-		<%= image_tag(@user.car_image)  %>
 
+      	<% if @user.car_avatar.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag @user.car_image %>
+        <% else %>
+             <%= image_tag @user.car_avatar.url %> 
+        <% end %>
 
 <!-- Contacts -->
 	     <div class="col-lg-10 col-lg-offset-1 text-center">
@@ -48,7 +58,13 @@
 		<% @user.kids.each do |kid| %>
 		<div class="show_box">
 			<div class="show_box_smaller">
-			<%= image_tag kid.image  %>
+
+      	<% if kid.avatar.url.chars.last(11).join == "missing.png"  %>
+            <%= image_tag kid.image %>
+        <% else %>
+             <%= image_tag kid.avatar.url %> 
+        <% end %>		
+
 			</div>
 
 			<div class="show_box_smaller">
